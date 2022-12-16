@@ -1,9 +1,13 @@
-import "./App.css";
+import React from "react";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div>
-      <h1 className="text-lg font-bold text-red-500">Hallo</h1>
+    <div className="App">
+      <Navbar />
+      <div>Hallo</div>
+      <Footer />
     </div>
   );
 }
