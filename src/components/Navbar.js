@@ -9,7 +9,7 @@ const Navbar = () => {
         </div>
         <div>
           <button className="border-2 border-[#5E50A1] px-[20px] py-[10px] rounded text-[#5E50A1] font-bold mr-[16px]">Masuk</button>
-          <button className="border-1 bg-[#5E50A1] px-[22px] py-[12px] rounded text-white">Daftar</button>
+          <button className="border-1 bg-[#5E50A1] px-[22px] py-[12px] rounded text-white font-bold">Daftar</button>
         </div>
         <div></div>
       </div>
