@@ -1,11 +1,21 @@
 import React from "react";
 import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <nav>
+        <div className="flex px-[150px] pt-[45px]">
+          <div className="flex-1">
+            <img className="" src={require("./assets/images/navlogo.png")} alt="navlogo" />
+          </div>
+          <div>
+            <button className="border-2 border-[#5E50A1] px-[20px] py-[10px] rounded text-[#5E50A1] font-bold mr-[16px]">Masuk</button>
+            <button className="border-1 bg-[#5E50A1] px-[22px] py-[12px] rounded text-white font-bold">Daftar</button>
+          </div>
+          <div></div>
+        </div>
+      </nav>
       <div>
         <div className="pl-[150px] pr-[115px] pt-[85px] flex mb-[100px]">
           <div className="w-[500px] pt-[110px] mr-[69px]">
