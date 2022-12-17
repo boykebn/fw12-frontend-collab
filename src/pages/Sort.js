@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
-const Home = () => {
+const Sort = () => {
   return (
     <div>
       <Navbar />
@@ -14,7 +14,7 @@ const Home = () => {
             <div className="bg-white rounded-[6px]">
               <div className="pl-[20px] pr-[10px] py-[6px] flex items-center">
                 <div className="flex-1 text-[14px] text-[#9EA0A5] leading-[20px]">
-                  <input className="py-[19px] pl-[15px] pr-[530px]" placeholder="Search for any skill" />
+                  <input className="py-[19px] pl-[15px] pr-[380px]" placeholder="Search for any skill" />
                 </div>
                 <div className="flex items-center">
                   <div className="mr-[30px]">
@@ -24,7 +24,12 @@ const Home = () => {
                     <img className="" src={require("../assets/images/Line.png")} alt="Line" />
                   </div>
                   <div className="mr-[50px]">
-                    <span className="text-[#9EA0A5] leading-[20px] font-semibold">Kategori</span>
+                    <select className="text-[#9EA0A5] text-[16px]">
+                      <option>Sort</option>
+                      <option>Sortir berdasarkan Skill</option>
+                      <option>Sortir berdasarkan Freelance</option>
+                      <option>Sortir berdasarkan Fulltime</option>
+                    </select>
                   </div>
                   <div>
                     <button className=" border-1 bg-[#5E50A1] py-[17px] px-[34px] rounded text-white font-semibold">Search</button>
@@ -90,10 +95,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );
 };
 
-export default Home;
+export default Sort;
