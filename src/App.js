@@ -3,8 +3,8 @@ import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="App">
-      <nav>
+    <div className="App bg-[#E5E5E5]">
+      <nav className="bg-white">
         <div className="flex px-[150px] pt-[45px]">
           <div className="flex-1">
             <img className="" src={require("./assets/images/navlogo.png")} alt="navlogo" />
@@ -16,7 +16,7 @@ function App() {
           <div></div>
         </div>
       </nav>
-      <div>
+      <div className="bg-white">
         <div className="pl-[150px] pr-[115px] pt-[85px] flex mb-[100px]">
           <div className="w-[500px] pt-[110px] mr-[69px]">
             <div className="mb-[20px]">
