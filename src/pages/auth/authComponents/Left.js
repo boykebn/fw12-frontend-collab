@@ -1,6 +1,6 @@
 const Left = () => {
     return (
-        <div className="basis-1/2 bg-[url('../images/auth/bg-auth.png')] bg-cover">
+        <div className="hidden md:basis-1/2 md:block bg-[url('../images/auth/bg-auth.png')] bg-cover">
             <div className="bg-[#5E50A1]/80 h-screen relative">
                 <div className="absolute">
                     <img className="h-[690px]" src={require('../../../assets/images/auth/ornamen-left.png')} alt="" />
