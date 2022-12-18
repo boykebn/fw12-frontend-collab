@@ -1,6 +1,6 @@
 import React from "react";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <div>
       <div className="flex px-[150px] pt-[45px] pb-[34px]">
@@ -19,7 +19,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-        <div className='bg-[#5E50A1] h-80 w-full absolute top-32'></div>
+        <div className={props.blueBg}></div>
     </div>
   );
 };

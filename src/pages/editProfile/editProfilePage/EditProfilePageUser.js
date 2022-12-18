@@ -13,7 +13,7 @@ import Navbar from '../../../components/Navbar';
 export default function EditProfilePage() {
     return (
         <>
-            <Navbar />
+            <Navbar blueBg="bg-[#5E50A1] h-80 w-full absolute top-32"/>
             <div className='relative'>
                 <div className='md:grid md:grid-cols-[400px_minmax(100px,_1fr)_10px] md:gap-5 mt-20 mb-32 lg:grid-cols-[500px_minmax(100px,_1fr)_110px]'>
                     <Profile />
