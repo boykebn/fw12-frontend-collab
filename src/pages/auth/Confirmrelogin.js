@@ -1,17 +1,17 @@
 import React from "react";
 
-const Confirmrelogin = () => {
+const ConfirmRelogin = () => {
     return (
         <div className="flex h-screen">
             <div className="basis-1/2 bg-[url('../images/auth/bg-auth.png')] bg-cover">
                 <div className="bg-[#5E50A1]/80 h-screen relative">
                     <div className="absolute">
-                        <img className="h-[690px]" src={require('../assets/images/auth/ornamen-left.png')} alt="" />
+                        <img className="h-[690px]" src={require('../../assets/images/auth/ornamen-left.png')} alt="" />
                     </div>
                     <div className="absolute right-0">
-                        <img src={require('../assets/images/auth/ornamen-right.png')} alt="" />
+                        <img src={require('../../assets/images/auth/ornamen-right.png')} alt="" />
                     </div>
-                    <img className="ml-10 pt-10" src={require('../assets/images/auth/logo-small-white.png')} alt="logo" />
+                    <img className="ml-10 pt-10" src={require('../../assets/images/auth/logo-small-white.png')} alt="logo" />
                     <h1 className="text-white text-4xl font-bold ml-14 mt-40 w-[340px] leading-normal">Temukan developer berbakat & terbaik di berbagai bidang keahlian</h1>
                 </div>
             </div>
@@ -36,4 +36,4 @@ const Confirmrelogin = () => {
     )
 }
 
-export default Confirmrelogin
+export default ConfirmRelogin
