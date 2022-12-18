@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import React from "react";
-import Navbar from "../components/Navbar";
 
 const Main = () => {
   return (
@@ -11,3 +10,5 @@ const Main = () => {
     </BrowserRouter>
   );
 };
+
+export default Main
