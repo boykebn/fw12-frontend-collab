@@ -18,8 +18,8 @@ const Navbar = () => {
             <img className="" src={require("../assets/images/profile.png")} alt="profile" />
           </div>
         </div>
-        <div></div>
       </div>
+        <div className='bg-[#5E50A1] h-80 w-full absolute top-32'></div>
     </div>
   );
 };

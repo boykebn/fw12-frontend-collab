@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+
+
+
+/* Edit Profile ClassName */
+
+.profile-image-parents {
+    @apply font-openSans flex flex-col justify-center items-center gap-2 bg-white m-5;
+}
+.profileImageClassName {
+    @apply rounded-[50%] w-36 h-36;
+}
+
+.editButtonClassName {
+    @apply flex gap-2 justify-center items-center font-openSans font-semibold text-[#9EA0A5] text-xl cursor-pointer;
+}
+
+.btn-editProfile {
+    @apply font-openSans text-base rounded-[4px] h-14 hover:scale-[1.04] hover:ease-in duration-200;
+}
+.parents-DataDiriInputClassName {
+    @apply flex flex-col gap-2 px-7 mt-5 md:flex md:flex-col md:mt-9 md:px-7 md:gap-2;
+}
+
+.dataDiri-InputClass {
+    @apply border-[1px] border-[#E2E5ED] outline-1 outline-blue-500 p-4 h-12 placeholder:text-sm rounded-[4px] truncate;
+}
+
+.deskripsi-singkatClassName {
+    @apply w-full border-[1px] border-[#E2E5ED] rounded-[4px] outline-1 outline-blue-500 p-4 h-36 placeholder:text-sm placeholder:absolute;
+}
+
+.skillListClassName {
+    @apply border-[1px] border-[#FBB017] rounded-[4px] h-7 pl-3 pr-[1px] flex items-center justify-between bg-[#FDD074] text-xs font-openSans font-semibold text-white box-border;
+}
+
+.pengalamanKerja-InputParentClassName {
+    @apply flex flex-col gap-2 md:flex md:flex-col md:gap-2 mb-10;
+}
+
+.btn-portfolioClassName {
+    @apply border-[1px] border-[#FBB017] text-[#FBB017] rounded-[4px] my-7 w-full h-12;
+}
