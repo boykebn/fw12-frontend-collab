@@ -10,6 +10,7 @@ import ConfirmPassword from "./ConfirmPassword";
 import ConfirmRelogin from "./ConfirmRelogin";
 import PageReqResetPass from "./PageReqResetPass";
 import CompanyProfile from "./CompanyProfile";
+import RegisterRecruiter from "./RegisterRecruiter";
 
 const Main = () => {
   return (
@@ -20,6 +21,10 @@ const Main = () => {
         <Route path="/sort" element={<Sort />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
+        <Route
+          path="/register-recruiter"
+          element={<RegisterRecruiter />}
+        ></Route>
         <Route path="/reset-password" element={<ResetPassword />}></Route>
         <Route path="/confirm-password" element={<ConfirmPassword />}></Route>
         <Route path="/confirm-relogin" element={<ConfirmRelogin />}></Route>
