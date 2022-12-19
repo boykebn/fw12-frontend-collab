@@ -11,7 +11,10 @@ import ConfirmRelogin from "./ConfirmRelogin";
 import PageReqResetPass from "./PageReqResetPass";
 import CompanyProfile from "./CompanyProfile";
 import EditJobseekerProfile from "./EditJobseekerProfile";
-import EditCompanyProfile from "./EditCompanyProfile"
+import EditCompanyProfile from "./EditCompanyProfile";
+import ProfileJobseeker from "./ProfileJobseeker";
+import ExperienceJobseeker from "./ExperienceJobseeker";
+import Hire from "./Hire";
 
 
 
@@ -33,7 +36,10 @@ const Main = () => {
         <Route path="/request-reset" element={<PageReqResetPass />}></Route>
         <Route path="/company-profile" element={<CompanyProfile />}></Route>
         <Route path="/edit-jobseeker-profile" element={<EditJobseekerProfile />} />
-        <Route path="edit-company-profile" element={<EditCompanyProfile />} />
+        <Route path="/edit-company-profile" element={<EditCompanyProfile />} />
+        <Route path="/profile-jobseeker" element={<ProfileJobseeker />} />
+        <Route path="/experience-jobseeker" element={<ExperienceJobseeker />} />
+        <Route path="/hire" element={<Hire/>} />
       </Routes>
     </BrowserRouter>
   );
