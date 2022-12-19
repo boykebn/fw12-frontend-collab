@@ -1,16 +1,16 @@
 import React from 'react';
-import DataDiriForm from '../editProfileComponents/asside/dataDiri/DataDiriForm';
-import Social from '../editProfileComponents/asside/dataDiri/Social';
-import Profile from '../editProfileComponents/profile/Profile';
-import SkillForm from '../editProfileComponents/asside/skill/SkillForm'
-import PengalamanKerja from '../editProfileComponents/asside/pengalamanKerja/PengalamanKerja';
-import Portfolio from '../editProfileComponents/asside/portfolio/Portfolio';
-import Navbar from '../../../components/Navbar';
+import Profile from '../components/editProfileComponents/profile/Profile';
+import DataDiriForm from '../components/editProfileComponents/asside/dataDiri/DataDiriForm';
+import Social from '../components/editProfileComponents/asside/dataDiri/Social';
+import SkillForm from '../components/editProfileComponents/asside/skill/SkillForm';
+import PengalamanKerja from '../components/editProfileComponents/asside/pengalamanKerja/PengalamanKerja';
+import Portfolio from '../components/editProfileComponents/asside/portfolio/Portfolio';
+import Navbar from '../components/Navbar';
 
 
 
 
-export default function EditProfilePage() {
+export default function EditCompanyProfile() {
     return (
         <>
             <Navbar blueBg="bg-[#5E50A1] h-80 w-full absolute top-32"/>
