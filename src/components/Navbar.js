@@ -19,7 +19,8 @@ const Navbar = (props) => {
           </div>
         </div>
       </div>
-        <div className={props.blueBg}></div>
+      <div className={props.blueBg}></div>
+      <div className={props.greyBg}></div>
     </div>
   );
 };
