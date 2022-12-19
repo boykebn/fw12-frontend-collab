@@ -11,12 +11,8 @@ import ConfirmRelogin from "./ConfirmRelogin";
 import PageReqResetPass from "./PageReqResetPass";
 import CompanyProfile from "./CompanyProfile";
 import EditJobseekerProfile from "./EditJobseekerProfile";
-import EditCompanyProfile from "./EditCompanyProfile"
-
-
-
-
-
+import EditCompanyProfile from "./EditCompanyProfile";
+import RegisterRecruiter from "./RegisterRecruiter";
 
 const Main = () => {
   return (
@@ -27,12 +23,19 @@ const Main = () => {
         <Route path="/sort" element={<Sort />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
+        <Route
+          path="/register-recruiter"
+          element={<RegisterRecruiter />}
+        ></Route>
         <Route path="/reset-password" element={<ResetPassword />}></Route>
         <Route path="/confirm-password" element={<ConfirmPassword />}></Route>
         <Route path="/confirm-relogin" element={<ConfirmRelogin />}></Route>
         <Route path="/request-reset" element={<PageReqResetPass />}></Route>
         <Route path="/company-profile" element={<CompanyProfile />}></Route>
-        <Route path="/edit-jobseeker-profile" element={<EditJobseekerProfile />} />
+        <Route
+          path="/edit-jobseeker-profile"
+          element={<EditJobseekerProfile />}
+        />
         <Route path="edit-company-profile" element={<EditCompanyProfile />} />
       </Routes>
     </BrowserRouter>
