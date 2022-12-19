@@ -1,11 +1,12 @@
 import React from 'react';
-import Profile from '../components/editProfileComponents/profile/Profile';
-import DataDiriForm from '../components/editProfileComponents/asside/dataDiri/DataDiriForm';
-import Social from '../components/editProfileComponents/asside/dataDiri/Social';
-import SkillForm from '../components/editProfileComponents/asside/skill/SkillForm';
-import PengalamanKerja from '../components/editProfileComponents/asside/pengalamanKerja/PengalamanKerja';
-import Portfolio from '../components/editProfileComponents/asside/portfolio/Portfolio';
+import Profile from '../components/editProfileComponents/editJobseekerProfile/profile/Profile';
+import DataDiriForm from '../components/editProfileComponents/editJobseekerProfile/asside/dataDiri/DataDiriForm';
+import Social from '../components/editProfileComponents/editJobseekerProfile/asside/dataDiri/Social';
+import SkillForm from '../components/editProfileComponents/editJobseekerProfile/asside/skill/SkillForm';
+import PengalamanKerja from '../components/editProfileComponents/editJobseekerProfile/asside/pengalamanKerja/PengalamanKerja';
+import Portfolio from '../components/editProfileComponents/editJobseekerProfile/asside/portfolio/Portfolio';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 
 
@@ -44,6 +45,7 @@ export default function EditJobseekerProfile() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 };
