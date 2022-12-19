@@ -2,9 +2,9 @@ import React from "react";
 import Left from "../components/authComponents/Left";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { registerEmployeAction } from "../redux/actions/auth";
+import { registerRecruiterAction } from "../redux/actions/auth";
 
-const Register = () => {
+const RegisterRecruiter = () => {
   const dispatch = useDispatch();
   const [errMessage, setErrMessage] = React.useState("");
   const navigate = useNavigate();
@@ -13,6 +13,8 @@ const Register = () => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email.value;
+    const company = e.target.perusahaan.value;
+    const field = e.target.bidangPerusahaan.value;
     const phoneNumber = e.target.nohp.value;
     const password = e.target.password.value;
     const confirmPassword = e.target.cpassword.value;
@@ -22,12 +24,14 @@ const Register = () => {
     };
     try {
       const results = await dispatch(
-        registerEmployeAction({
+        registerRecruiterAction({
           name,
           email,
           phoneNumber,
           password,
           confirmPassword,
+          company,
+          field,
           cb,
         })
       );
@@ -68,6 +72,24 @@ const Register = () => {
                 type="email"
                 name="email"
                 placeholder="Masukan alamat email"
+              />
+            </div>
+            <div className="flex flex-col mb-7">
+              <label className="text-gray-400 mb-1">Perusahaan</label>
+              <input
+                className="border rounded py-2 px-4 bg-white"
+                type="text"
+                name="perusahaan"
+                placeholder="Masukan nama perusahaan"
+              />
+            </div>
+            <div className="flex flex-col mb-7">
+              <label className="text-gray-400 mb-1">Bidang Perusahaan</label>
+              <input
+                className="border rounded py-2 px-4 bg-white"
+                type="text"
+                name="bidangPerusahaan"
+                placeholder="Bidang perusahaan anda"
               />
             </div>
             <div className="flex flex-col mb-7">
@@ -118,4 +140,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterRecruiter;
