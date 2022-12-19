@@ -11,8 +11,8 @@ import Footer from '../components/Footer';
 export default function EditCompanyProfile() {
     return (
         <>
-            <Navbar blueBg="bg-[#5E50A1] h-[28rem] w-full absolute top-32" greyBg="bg-[#E5E5E5] h-[123rem] md:h-[60rem] lg:h-[60rem] w-full absolute top-0 md:top-[29rem] lg:top-[29rem]"/>
-            <div className='relative'>
+            <Navbar blueBg="bg-[#5E50A1] h-[28rem] w-full absolute top-32 z-[-1]" grayBg="bg-[#E5E5E5] h-[125rem] md:h-[60rem] lg:h-[60rem] w-full absolute top-[29rem] md:top-[29rem] lg:top-[29rem] z-[-1]"/>
+            <div className="pt-24">
                 <div className='md:grid md:grid-cols-[400px_minmax(100px,_1fr)_10px] md:gap-5 mt-20 mb-32 lg:grid-cols-[500px_minmax(100px,_1fr)_110px]'>
                     <Profile />
                     <div className='mx-2'>
