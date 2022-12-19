@@ -11,7 +11,7 @@ const Footer = () => {
           <div className="text-white w-[300px] leading-[28px] pt-[30px] pb-[67px]">
             <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</span>
           </div>
-          <hr className="mb-[30px]" />
+          <hr className="mb-[30px] text-white" />
           <div className="text-white flex">
             <div className="flex-1">
               <span>2020 Pewworld. All right reserved</span>
