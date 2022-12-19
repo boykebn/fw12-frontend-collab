@@ -8,7 +8,7 @@ import Register from "./Register";
 import ResetPassword from "./ResetPassword";
 import ConfirmPassword from "./ConfirmPassword";
 import ConfirmRelogin from "./ConfirmRelogin";
-import PageReqResetPass from "./PageReqResetPass";
+import RequestPassword from "./RequestPassword";
 import CompanyProfile from "./CompanyProfile";
 import EditJobseekerProfile from "./EditJobseekerProfile";
 import EditCompanyProfile from "./EditCompanyProfile";
@@ -30,7 +30,7 @@ const Main = () => {
         <Route path="/reset-password" element={<ResetPassword />}></Route>
         <Route path="/confirm-password" element={<ConfirmPassword />}></Route>
         <Route path="/confirm-relogin" element={<ConfirmRelogin />}></Route>
-        <Route path="/request-reset" element={<PageReqResetPass />}></Route>
+        <Route path="/request-reset" element={<RequestPassword />}></Route>
         <Route path="/company-profile" element={<CompanyProfile />}></Route>
         <Route
           path="/edit-jobseeker-profile"
