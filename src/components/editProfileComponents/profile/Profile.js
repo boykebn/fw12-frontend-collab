@@ -12,7 +12,7 @@ export default function Profile() {
         <div className='md:ml-20 lg:ml-[150px]'>
             <div className='bg-white md:p-5 rounded-[8px] font-openSans py-4 mx-2'>
                 <div className='profile-image-parents'>
-                    <img src={require('../../../../assets/images/test3.png')} alt="profile" className='profileImageClassName' />
+                    <img src={require('../../../assets/images/test3.png')} alt="profile" className='profileImageClassName' />
                     <div className='editButtonClassName'>
                         <RiPencilFill />
                     <span>Edit</span>
