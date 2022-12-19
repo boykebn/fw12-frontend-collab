@@ -1,16 +1,14 @@
 import React from 'react';
-import DataDiriForm from '../editProfileComponents/asside/dataDiri/DataDiriForm';
-import Social from '../editProfileComponents/asside/dataDiri/Social';
-import Profile from '../editProfileComponents/profile/Profile';
-import SkillForm from '../editProfileComponents/asside/skill/SkillForm'
-import PengalamanKerja from '../editProfileComponents/asside/pengalamanKerja/PengalamanKerja';
-import Portfolio from '../editProfileComponents/asside/portfolio/Portfolio';
-import Navbar from '../../../components/Navbar';
+import Profile from '../components/editProfileComponents/editCompanyProfile/profileEditCompanyProfile/ProfileCompany';
+import DataDiriForm from '../components/editProfileComponents/editCompanyProfile/assideEditCompanyProfile/dataDiriCompany/DataDiriFormCompany'
+import SocialCompany from '../components/editProfileComponents/editCompanyProfile/assideEditCompanyProfile/dataDiriCompany/SocialCompany';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 
 
 
-export default function EditProfilePage() {
+export default function EditCompanyProfile() {
     return (
         <>
             <Navbar blueBg="bg-[#5E50A1] h-80 w-full absolute top-32"/>
@@ -20,7 +18,6 @@ export default function EditProfilePage() {
                     <div className='mx-2'>
                         <form action="" className='flex flex-col md:flex md:flex-col bg-white rounded-[8px]' >
                             <DataDiriForm />
-                            <Social />
                             <div className='flex flex-col gap-2 px-7 mt-7 md:flex md:flex-col md:gap-2'>
                                 <label htmlFor="decryption" className='text-[#9EA0A5] text-xs'>
                                     Deskripsi singkat
@@ -32,18 +29,17 @@ export default function EditProfilePage() {
                                     placeholder='Tuliskan deskripsi singkat'>
                                 </textarea>
                             </div>
+                            <SocialCompany />
                             <button
                                 type='button'
                                 className='w-20 self-end h-12 rounded-[4px] bg-[#FBB017] text-[#FFFFFF] font-openSans m-7 hover:scale-[1.05]'>
                                 Simpan
                             </button>
                         </form>
-                        <SkillForm />
-                        <PengalamanKerja />
-                        <Portfolio />
                     </div>
                 </div>
             </div>
+            <Footer />
         </>
     )
 };

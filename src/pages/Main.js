@@ -10,6 +10,8 @@ import ConfirmPassword from "./ConfirmPassword";
 import ConfirmRelogin from "./ConfirmRelogin";
 import PageReqResetPass from "./PageReqResetPass";
 import CompanyProfile from "./CompanyProfile";
+import EditJobseekerProfile from "./EditJobseekerProfile";
+import EditCompanyProfile from "./EditCompanyProfile";
 import RegisterRecruiter from "./RegisterRecruiter";
 
 const Main = () => {
@@ -30,6 +32,11 @@ const Main = () => {
         <Route path="/confirm-relogin" element={<ConfirmRelogin />}></Route>
         <Route path="/request-reset" element={<PageReqResetPass />}></Route>
         <Route path="/company-profile" element={<CompanyProfile />}></Route>
+        <Route
+          path="/edit-jobseeker-profile"
+          element={<EditJobseekerProfile />}
+        />
+        <Route path="edit-company-profile" element={<EditCompanyProfile />} />
       </Routes>
     </BrowserRouter>
   );
