@@ -7,9 +7,9 @@ const CompanyProfile = () => {
     <div>
       <Navbar />
       <div className="bg-[#E5E5E5]">
-        <div className="px-[150px] pt-[170px] pb-[270px] flex flex-col justify-center">
-          <div className="bg-[#5E50A1] rounded-tl-[8px] rounded-tr-[8px]">
-            <div className="flex justify-center pt-[114px]">
+        <div className="px-10 md:px-[150px] pt-[170px] pb-[270px] flex flex-col justify-center">
+          <div className=" bg-[#5E50A1] rounded-tl-[8px] rounded-tr-[8px] md:w-full">
+            <div className="flex justify-center pt-[114px] relative mb-[-50px]">
               <img className="" src={require("../assets/images/test3.png")} alt="test3" />
             </div>
           </div>
@@ -23,7 +23,7 @@ const CompanyProfile = () => {
                 <img className="" src={require("../assets/images/map.png")} alt="map" />
                 <div className="text-[#9EA0A5] text-[14px] leading-[20px] pl-[17px]">Purwokerto, Jawa Tengah</div>
               </div>
-              <div className="flex justify-center px-[263px] mb-[20px]">
+              <div className=" md:flex justify-center md:px-[263px] mb-[20px]">
                 <div className="text-[#9EA0A5] text-[14px] leading-[24px]">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci, mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.
                 </div>

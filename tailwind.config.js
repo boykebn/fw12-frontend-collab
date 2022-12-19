@@ -4,8 +4,15 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-            openSans: ['Open Sans'],
+        openSans: ["Open Sans"],
       },
+    },
+  },
+  variants: {
+    extend: {
+      display: ["group-focus"],
+      opacity: ["group-focus"],
+      inset: ["group-focus"],
     },
   },
   plugins: [],
