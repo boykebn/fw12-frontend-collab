@@ -2,12 +2,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Home from "./pages/Home"
 import Sort from "./pages/Sort"
-import Login from "./pages/auth/Login"
-import Register from "./pages/auth/Register"
-import ResetPassword from "./pages/auth/ResetPassword"
-import ConfirmPassword from "./pages/auth/ConfirmPassword"
-import ConfirmRelogin from "./pages/auth/ConfirmRelogin"
-import PageReqResetPass from "./pages/auth/PageReqResetPass"
+import Login from "./pages/Login"
+import Register from "./pages/Register"
+import ResetPassword from "./pages/ResetPassword"
+import ConfirmPassword from "./pages/ConfirmPassword"
+import ConfirmRelogin from "./pages/ConfirmRelogin"
+import PageReqResetPass from "./pages/PageReqResetPass"
 
 const App = () => {
   return (

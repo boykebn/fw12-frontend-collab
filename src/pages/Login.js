@@ -1,5 +1,5 @@
 import React from "react";
-import Left from "./authComponents/Left";
+import Left from "../components/authComponents/Left";
 import { Link } from "react-router-dom";
 
 const Login = () => {
