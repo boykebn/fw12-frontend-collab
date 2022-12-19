@@ -38,7 +38,7 @@ export default function Profile() {
                     Simpan
                 </button>
                 <button type="button"
-                    className="btn-editProfile bg-[#FFFFFF] text-[#5E50A1]">
+                    className="btn-editProfile bg-[#FFFFFF] text-[#5E50A1] border-[1px] border-[#5E50A1]">
                     Kembali
                 </button>
             </div>
