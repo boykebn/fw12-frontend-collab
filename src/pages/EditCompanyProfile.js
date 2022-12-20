@@ -1,6 +1,6 @@
 import React from 'react';
 import Profile from '../components/editProfileComponents/editCompanyProfile/profileEditCompanyProfile/ProfileCompany';
-import CompanyPersonalDataForm from '../components/editProfileComponents/editCompanyProfile/assideEditCompanyProfile/companyPersonalData/SocialCompany'
+import CompanyPersonalDataForm from '../components/editProfileComponents/editCompanyProfile/assideEditCompanyProfile/companyPersonalData/CompanyPersonalDataForm';
 import SocialCompany from '../components/editProfileComponents/editCompanyProfile/assideEditCompanyProfile/companyPersonalData/SocialCompany';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
