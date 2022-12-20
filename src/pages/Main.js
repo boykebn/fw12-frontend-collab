@@ -4,6 +4,7 @@ import Landing from "./Landing";
 import Home from "./Home";
 import Sort from "./Sort";
 import Login from "./Login";
+import LoginRecruiter from "./LoginRecruiter";
 import Register from "./Register";
 import ResetPassword from "./ResetPassword";
 import ConfirmPassword from "./ConfirmPassword";
@@ -16,7 +17,11 @@ import Hire from "./Hire";
 import EditJobseekerProfile from "./EditJobseekerProfile";
 import EditCompanyProfile from "./EditCompanyProfile";
 import RegisterRecruiter from "./RegisterRecruiter";
+import ProfileJobseeker from "./ProfileJobseeker";
+import ExperincesJobseeker from "./ExperienceJobseeker";
 
+import PrivateRoute from "./middlewareComponent/PrivateRoute";
+import ExperienceJobseeker from "./ExperienceJobseeker";
 const Main = () => {
   return (
     <BrowserRouter>
@@ -25,6 +30,7 @@ const Main = () => {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/sort" element={<Sort />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/login-recruiter" element={<LoginRecruiter />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route path="/register-recruiter" element={<RegisterRecruiter />}></Route>
         <Route path="/reset-password" element={<ResetPassword />}></Route>
@@ -32,11 +38,11 @@ const Main = () => {
         <Route path="/confirm-relogin" element={<ConfirmRelogin />}></Route>
         <Route path="/request-reset" element={<RequestPassword />}></Route>
         <Route path="/company-profile" element={<CompanyProfile />}></Route>
-        <Route path="/profile-jobseeker" element={<ProfileJobseeker />}></Route>
-        <Route path="/experience-jobseeker" element={<ExperienceJobseeker />}></Route>
-        <Route path="/hire" element={<Hire />}></Route>
-        <Route path="/edit-jobseeker-profile" element={<EditJobseekerProfile />}></Route>
-        <Route path="/edit-company-profile" element={<EditCompanyProfile />}></Route>
+        <Route
+          path="/edit-jobseeker-profile"
+          element={<EditJobseekerProfile />}
+        />
+        <Route path="edit-company-profile" element={<EditCompanyProfile />} />
       </Routes>
     </BrowserRouter>
   );
