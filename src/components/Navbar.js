@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 // const Navbar = (props) => {
 //   return (
@@ -45,9 +46,9 @@ const Navbar = () => {
               </button>
             </div>
             <div>
-              <button>
+              <Link to="/edit-jobseeker-profile">
                 <img className="" src={require("../assets/images/profile.png")} alt="profile" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>

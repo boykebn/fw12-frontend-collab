@@ -1,16 +1,21 @@
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
   return (
-    <div className="App bg-[#E5E5E5]">
+    <div className="App bg-[#E5E5E5] font-openSans">
       <nav className="bg-white">
         <div className="px-10 flex md:px-[150px] pt-[45px]">
           <div className="flex-1">
             <img className="" src={require("../assets/images/navlogo.png")} alt="navlogo" />
           </div>
           <div>
-            <button className="border-2 border-[#5E50A1] px-[20px] py-[10px] rounded text-[#5E50A1] font-bold mr-[16px]">Masuk</button>
-            <button className="border-1 bg-[#5E50A1] px-[22px] py-[12px] rounded text-white font-bold">Daftar</button>
+            <Link to="/login" className="border-2 border-[#5E50A1] px-[20px] py-[10px] rounded text-[#5E50A1] font-bold mr-[16px]">
+              Masuk
+            </Link>
+            <Link to="/register" className="border-1 bg-[#5E50A1] px-[22px] py-[12px] rounded text-white font-bold">
+              Daftar
+            </Link>
           </div>
           <div></div>
         </div>
@@ -218,7 +223,7 @@ const Landing = () => {
             <div className="border-1 bg-[#5E50A1] rounded-tl-[50px] rounded-br-[50px] md:w-full">
               <div className="py-[58px] px-[70px] md:flex">
                 <div className="flex-1">
-                  <div className="text-lg md:text-[36px] text-white w-[230px]">Lorem ipsum dolor sit amet</div>
+                  <div className="text-lg md:text-[36px] text-white w-[250px] leading-[56px]">Lorem ipsum dolor sit amet</div>
                 </div>
                 <div className="flex items-center">
                   <button className="border-1 bg-white py-[10px] px-[15px] rounded text-[#796EAF] text-[16px] font-bold">Mulai Dari Sekarang</button>

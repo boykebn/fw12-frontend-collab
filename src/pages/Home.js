@@ -1,11 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 const Home = () => {
+  const [profile, setProfile] = React.useState({});
+  React.useEffect(() => {
+    getProfile().then((data) => {
+      setProfile(data);
+    });
+  }, []);
+
+  const getProfile = async () => {
+    const { data } = await axios.get("https://fw12-backend-collab.vercel.app/users/skill");
+    return data;
+  };
+
   return (
-    <div>
+    <div className="font-openSans">
       <Navbar />
       <Header />
       <div className="bg-[#E5E5E5]">
@@ -14,7 +29,7 @@ const Home = () => {
             <div className="bg-white rounded-[6px]">
               <div className="pl-[20px] pr-[10px] py-[6px] flex items-center">
                 <div className="flex-1 text-[14px] text-[#9EA0A5] leading-[20px]">
-                  <input className="pr-48 py-[19px] pl-[15px] md:pr-[380px]" placeholder="Search for any skill" />
+                  <input className="pr-48 py-[19px] pl-[15px] md:pr-[360px]" placeholder="Search for any skill" />
                 </div>
                 <div className="hidden md:flex items-center">
                   <div className="mr-[30px]">
@@ -59,30 +74,36 @@ const Home = () => {
           </div>
         </div>
         <main className="px-[150px] pb-[50px]">
-          <div className="bg-white md:flex pl-[20px] pt-[21px] pb-[38px] pr-[77px] mb-[1px] rounded-[8px]">
-            <div className="mr-[35px] flex md:items-center">
-              <img className="md:w-[100px] md:h-[100px]" src={require("../assets/images/testi1.png")} alt="testi1" />
+          {profile?.results?.map((bio) => (
+            <div className="bg-white md:flex pl-[20px] pt-[21px] pb-[38px] pr-[77px] mb-[1px] rounded-[8px]">
+              <div className="mr-[35px] flex md:items-center">
+                <img className="md:w-[100px] md:h-[100px]" src={require("../assets/images/testi1.png")} alt="testi1" />
+              </div>
+              <div className="flex-1">
+                <div>
+                  <span className="text-[#1F2A36] text-2xl md:text-[22px] font-bold">{bio.name}</span>
+                </div>
+                <div className="mb-[6px]">
+                  <span className="text-[#9EA0A5] text-[14px] leading-[20px]">{bio.jobDesk}</span>
+                </div>
+                <div className="flex items-center mb-[17px]">
+                  <img className="mr-[15px] w-[16px] h-[16px]" src={require("../assets/images/map.png")} alt="map" />
+                  <span className="text-[#9EA0A5] text-[14px] leading-[20px]">{bio.address}</span>
+                </div>
+                <div className="flex">
+                  {bio.skills.map((skill) => (
+                    <div className="w-max mr-3">
+                      <div className="border-1 bg-[#FBB01799] rounded-[4px] py-[5px] px-[23px] text-white">{skill}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mb-5 md:hidden"></div>
+              </div>
+              <div className="flex justify-center items-center">
+                <button className="border-1 bg-[#5E50A1] py-[17px] px-[27px] rounded font-semibold text-white leading-[20px] text-[16px]">Lihat Profile</button>
+              </div>
             </div>
-            <div className="flex-1">
-              <div>
-                <span className="text-[#1F2A36] text-2xl md:text-[22px] font-bold">Louis Tomlinson</span>
-              </div>
-              <div className="mb-[6px]">
-                <span className="text-[#9EA0A5] text-[14px] leading-[20px]">Web developer - Freelance</span>
-              </div>
-              <div className="flex items-center mb-[17px]">
-                <img className="mr-[15px] w-[16px] h-[16px]" src={require("../assets/images/map.png")} alt="map" />
-                <span className="text-[#9EA0A5] text-[14px] leading-[20px]">Lorem ipsum</span>
-              </div>
-              <div className="w-max">
-                <div className="border-1 bg-[#FBB01799] rounded-[4px] py-[5px] px-[23px] text-white">PHP</div>
-              </div>
-              <div className="mb-5 md:hidden"></div>
-            </div>
-            <div className="flex justify-center items-center">
-              <button className="border-1 bg-[#5E50A1] py-[17px] px-[27px] rounded font-semibold text-white leading-[20px] text-[16px]">Lihat Profile</button>
-            </div>
-          </div>
+          ))}
         </main>
         <div className="hidden px-10 md:px-[150px] pb-[70px] text-[#9EA0A5] text-[18px] md:flex justify-center">
           <div className="mr-[14px]">

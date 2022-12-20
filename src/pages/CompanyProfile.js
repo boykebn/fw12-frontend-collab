@@ -4,12 +4,12 @@ import Footer from "../components/Footer";
 
 const CompanyProfile = () => {
   return (
-    <div>
+    <div className="font-openSans">
       <Navbar />
       <div className="bg-[#E5E5E5]">
         <div className="px-10 md:px-[150px] pt-[170px] pb-[270px] flex flex-col justify-center">
           <div className=" bg-[#5E50A1] rounded-tl-[8px] rounded-tr-[8px] md:w-full">
-            <div className="flex justify-center pt-[114px] relative mb-[-50px]">
+            <div className="flex justify-center pt-[114px] mb-[-50px] relative">
               <img className="" src={require("../assets/images/test3.png")} alt="test3" />
             </div>
           </div>
