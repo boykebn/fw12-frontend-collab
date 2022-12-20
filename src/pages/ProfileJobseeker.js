@@ -3,7 +3,7 @@ import React from "react";
 const ProfileJobseeker = () => {
   return (
     <div>
-      <div className="lg:flex lg:items-center lg:py-5 hidden lg:px-28">
+      <div className="md:flex md:items-center md:py-5 hidden md:px-28">
         <div className="flex-1">
           <img
             className="w-32"
@@ -134,14 +134,14 @@ const ProfileJobseeker = () => {
           <div className="bg-white rounded-lg p-5">
             <div className="flex items-center gap-10 mb-8">
               <div className="py-3 border-b-4 rounded border-[#5E50A1]">
-                <h3 className="font-semibold text-xl md:text-2xl cursor-pointer">
+                <a href="/profile-jobseeker" className="font-semibold text-xl md:text-2xl cursor-pointer">
                   Portofolio
-                </h3>
+                </a>
               </div>
               <div>
-                <h3 className="text-xl md:text-2xl cursor-pointer hover:font-semibold">
+                <a href="/experience-jobseeker" className="text-xl md:text-2xl cursor-pointer hover:font-semibold">
                   Pengalaman kerja
-                </h3>
+                </a>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
