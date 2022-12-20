@@ -18,7 +18,7 @@ export const registerEmployeAction = createAsyncThunk(
   "auth/registerEmployeAction",
   async ({ name, email, phoneNumber, password, confirmPassword, cb }) => {
     try {
-      const { data } = await http().post(`/auth/register-employe`, {
+      const { data } = await http().post(`auth/register-employe`, {
         name,
         email,
         phoneNumber,
@@ -46,7 +46,7 @@ export const registerRecruiterAction = createAsyncThunk(
     cb,
   }) => {
     try {
-      const { data } = await http().post(`/auth/register-recruiter`, {
+      const { data } = await http().post(`auth/register-recruiter`, {
         name,
         email,
         phoneNumber,
