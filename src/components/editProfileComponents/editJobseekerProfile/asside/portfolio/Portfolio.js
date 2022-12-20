@@ -39,7 +39,7 @@ export default function Portfolio() {
         <div className="flex flex-col gap-2 mt-7">
           <span className="text-[#9EA0A5] text-xs mt-7">Upload gambar</span>
           <div className="flex flex-col border-[1px] border-[#9EA0A5] border-dashed h-[348px] w-full rounded-[8px] justify-center items-center gap-5 text-[#9EA0A5] p-5 text-center">
-            <IoMdCloudUpload className="h-16 w-28 cursor-pointer" />
+            <IoMdCloudUpload className="h-16 w-28 cursor-pointer hover:scale-[1.05] hover:drop-shadow-md" />
             <span className="font-openSans text-[#1F2A36] text-sm">
               Drag & Drop untuk Upload Gambar Aplikasi Mobile
             </span>
