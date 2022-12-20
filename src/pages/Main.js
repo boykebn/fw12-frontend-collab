@@ -31,7 +31,7 @@ const Main = () => {
         <Route path="/confirm-password" element={<ConfirmPassword />}></Route>
         <Route path="/confirm-relogin" element={<ConfirmRelogin />}></Route>
         <Route path="/request-reset" element={<RequestPassword />}></Route>
-        <Route path="/company-profile" element={<CompanyProfile />}></Route>
+        <Route path="/company-profile/:id" element={<CompanyProfile />}></Route>
         <Route
           path="/edit-jobseeker-profile"
           element={<EditJobseekerProfile />}

@@ -12,7 +12,7 @@ export default function EditJobseekerProfile() {
   return (
     <>
       <Navbar blueBg="bg-[#5E50A1] h-[28rem] w-full absolute top-32" greyBg="bg-[#E5E5E5] h-[217rem] md:h-[181rem] lg:h-[157rem] w-full absolute top-[29rem]" />
-      <div className="pt-[100px]">
+      <div className="relative">
         <div className="md:grid md:grid-cols-[400px_minmax(100px,_1fr)_10px] md:gap-5 mt-20 mb-32 lg:grid-cols-[500px_minmax(100px,_1fr)_110px]">
           <Profile />
           <div className="mx-2">

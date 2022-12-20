@@ -25,10 +25,10 @@ import { Link } from "react-router-dom";
 //   );
 // };
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <div>
-      <nav className="fixed pl-5 py-[33px]  md:pl-[150px] md:pr-[130px] bg-white  w-full ">
+      <nav className="fixed pl-5 py-[33px]  md:pl-[150px] md:pr-[130px] bg-white w-full z-10">
         <div className="container m-auto flex justify-between items-center text-gray-700">
           <img className="" src={require("../assets/images/navlogo.png")} alt="navlogo" />
           <div className="flex items-center pr-0 text-base font-semibold">
@@ -53,6 +53,8 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      <div className={props.blueBg}></div>
+      <div className={props.grayBg}></div>
     </div>
   );
 };
