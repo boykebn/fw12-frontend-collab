@@ -4,6 +4,7 @@ import Landing from "./Landing";
 import Home from "./Home";
 import Sort from "./Sort";
 import Login from "./Login";
+import LoginRecruiter from "./LoginRecruiter";
 import Register from "./Register";
 import ResetPassword from "./ResetPassword";
 import ConfirmPassword from "./ConfirmPassword";
@@ -26,6 +27,7 @@ const Main = () => {
         <Route path="/home" element={<Home />}></Route>
         <Route path="/sort" element={<Sort />}></Route>
         <Route path="/login" element={<Login />}></Route>
+        <Route path="/login-recruiter" element={<LoginRecruiter />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route
           path="/register-recruiter"

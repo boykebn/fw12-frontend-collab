@@ -37,7 +37,7 @@ const Register = () => {
     }
   };
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen overflow-y-hidden">
       <Left />
       <div className="md:basis-1/2 bg-[#E5E5E] overflow-y-auto">
         <div className="py-28 px-16">
@@ -82,6 +82,12 @@ const Register = () => {
             Anda sudah punya akun?{" "}
             <Link to="/login" className="text-[#FBB017]">
               Masuk disini
+            </Link>
+          </p>
+          <p className="text-center">
+            Daftar sebagai perekrut?{" "}
+            <Link to="/register-recruiter" className="text-[#FBB017]">
+              Daftar disini 
             </Link>
           </p>
         </div>

@@ -35,11 +35,11 @@ const ConfirmPassword = () => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen overflow-y-hidden">
       <Left />
-      <div className="md:basis-1/2 bg-[#E5E5E] overflow-y-auto">
+      <div className="md:basis-1/2 bg-[#E5E5E]">
         <div className="py-28 px-16">
-          <h2 className="text-2xl font-bold mb-3">Reset password</h2>
+          <h2 className="text-2xl font-bold mb-3 ">Reset password</h2>
           <p className="text-gray-500 mb-5">You need to change your password to activate your account</p>
           <form onSubmit={resetPassword}>
             {errMessage ? (
