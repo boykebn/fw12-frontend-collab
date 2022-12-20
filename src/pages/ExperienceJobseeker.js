@@ -27,21 +27,43 @@ const ExperienceJobseeker = () => {
 
   function getMonthDifference(joinDate, outDate) {
     return (
+      outDate.getMonth() -
+      joinDate.getMonth() +
+      12 * (outDate.getFullYear() - joinDate.getFullYear())
+    );
+  }
+
+  useEffect(() => {
+    getUserProfile();
+    getExperiencesProfile();
+  }, []);
+
+  return (
+    <div>
+      {/* <div className="lg:flex lg:items-center lg:py-5 hidden lg:px-28">
+        <div className="flex-1">
+          <img
+            className="w-32"
+            src={require("../assets/images/navlogo.png")}
+            alt="logo"
+          />
+        </div>
+        <div className="mr-14">
+          <img src={require("../assets/images/bell.png")} alt="bell" />
+        </div>
+        <div className="mr-14">
+          <img src={require("../assets/images/mail.png")} alt="mail" />
+        </div>
         <div>
-            <div className="lg:flex lg:items-center lg:py-5 hidden lg:px-28">
-                <div className="flex-1">
-                    <img className="w-32" src={require('../assets/images/navlogo.png')} alt='logo' />
-                </div>
-                <div className="mr-14">
-                    <img src={require('../assets/images/bell.png')} alt='bell' />
-                </div>
-                <div className="mr-14">
-                    <img src={require('../assets/images/mail.png')} alt='mail' />
-                </div>
-                <div>
-                    <img className='w-12' src={require('../assets/images/profile.png')} alt='profile' />
-                </div>
-            </div>
+          <img
+            className="w-12"
+            src={require("../assets/images/profile.png")}
+            alt="profile"
+          />
+        </div>
+      </div> */}
+
+      <Navbar />
 
       <div className="flex bg-slate-100 gap-5 px-10 md-px-20 lg:px-28 py-10 font-sans flex-col lg:flex-row pt-36">
         <div className="flex-[35%]">
@@ -128,46 +150,55 @@ const ExperienceJobseeker = () => {
           </div>
         </div>
 
-                <div className="flex-[65%]">
-                    <div className="bg-white rounded-lg p-5">
-                        <div className="flex items-center gap-10 mb-8">
-                            <div>
-                                <h3 className="font-semibold text-xl md:text-2xl cursor-pointer">Portofolio</h3>
-                            </div>
-                            <div className="py-3 border-b-4 rounded border-[#5E50A1]">
-                                <h3 className="text-xl md:text-2xl cursor-pointer hover:font-semibold">Pengalaman kerja</h3>
-                            </div>
-                        </div>
-                        <div className="flex mt-[46px] pr-[77px]">
-                            <img src={require('../assets/images/suitcase.png')} className="px-9 h-[65px]" alt='Suitcase' />
-                            <div>
-                                <div className="text-xl font-semibold">Engineer</div>
-                                <div className="text-lg font-normal">Tokopedia</div>
-                                <div className="flex gap-3 text-base text-[#9EA0A5]">
-                                    <div>July 2019 - January 2020</div>
-                                    <div>6 months</div>
-                                </div>
-                                <div className="mt-4 text-[#1F2A36]">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci, mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.
-                                </div>
-                            </div>
-                        </div>
-                        <br/>
-                        <hr />
-                        <div className="flex mt-[40px] pr-[77px]">
-                            <img src={require('../assets/images/suitcase.png')} className="px-9 h-[65px]" alt='Suitcase' />
-                            <div>
-                                <div className="text-xl font-semibold">Engineer</div>
-                                <div className="text-lg font-normal">Tokopedia</div>
-                                <div className="flex gap-3 text-base text-[#9EA0A5]">
-                                    <div>July 2019 - January 2020</div>
-                                    <div>6 months</div>
-                                </div>
-                                <div className="mt-4 text-[#1F2A36]">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci, mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.
-                                </div>
-                            </div>
-                        </div>
+        <div className="flex-[65%]">
+          <div className="bg-white rounded-lg p-5">
+            <div className="flex items-center gap-10 mb-8">
+              <div>
+                <Link to={`/jobseeker-profile/${id}`}>
+                  <h3 className="font-semibold text-xl md:text-2xl cursor-pointer lg:text-lg">
+                    Portofolio
+                  </h3>
+                </Link>
+              </div>
+              <div className="py-3 border-b-4 rounded border-[#5E50A1]">
+                <h3 className="text-xl md:text-2xl cursor-pointer hover:font-semibold lg:text-lg">
+                  Pengalaman kerja
+                </h3>
+              </div>
+            </div>
+            {experiences?.map((e) => {
+              return (
+                <div className="flex mt-[46px] pr-[77px]" key={toString(e.id)}>
+                  <img
+                    src={require("../assets/images/suitcase.png")}
+                    className="px-9 h-[65px]"
+                    alt="Suitcase"
+                  />
+                  <div>
+                    <div className="text-xl font-semibold">{e.position}</div>
+                    <div className="text-lg font-normal">{e.companyName}</div>
+                    <div className="flex gap-3 text-base text-[#9EA0A5]">
+                      <div>
+                        {`${new Date(e.joinDate)
+                          .toLocaleString("default", {
+                            month: "long",
+                          })
+                          .concat(" " + new Date(e.joinDate).getFullYear())}`}
+                      </div>
+                      <div>-</div>
+                      <div>
+                        {`${new Date(e.outDate)
+                          .toLocaleString("default", {
+                            month: "long",
+                          })
+                          .concat(" " + new Date(e.outDate).getFullYear())}`}
+                      </div>
+                      <div>
+                        {`${getMonthDifference(
+                          new Date(e.joinDate),
+                          new Date(e.outDate)
+                        )} Month`}
+                      </div>
                     </div>
                     <div className="mt-4 text-[#1F2A36]">{e.description}</div>
                   </div>

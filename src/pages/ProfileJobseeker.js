@@ -32,7 +32,7 @@ const ProfileJobseeker = () => {
 
   return (
     <div>
-      <div className="lg:flex lg:items-center lg:py-5 hidden lg:px-28">
+      {/* <div className="lg:flex lg:items-center lg:py-5 hidden lg:px-28">
         <div className="flex-1">
           <img
             className="w-32"
@@ -146,14 +146,16 @@ const ProfileJobseeker = () => {
           <div className="bg-white rounded-lg p-5">
             <div className="flex items-center gap-10 mb-8">
               <div className="py-3 border-b-4 rounded border-[#5E50A1]">
-                <h3 className="font-semibold text-xl md:text-2xl cursor-pointer">
+                <h3 className="font-semibold text-xl md:text-2xl cursor-pointer lg:text-lg">
                   Portofolio
-                </a>
+                </h3>
               </div>
               <div>
-                <h3 className="text-xl md:text-2xl cursor-pointer hover:font-semibold">
-                  Pengalaman kerja
-                </h3>
+                <Link to={`/jobseeker-profile/experiences/${id}`}>
+                  <h3 className="text-xl md:text-2xl cursor-pointer hover:font-semibold lg:text-lg">
+                    Pengalaman kerja
+                  </h3>
+                </Link>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
