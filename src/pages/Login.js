@@ -1,7 +1,7 @@
 import Left from "../components/authComponents/Left";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { loginAction } from "../redux/actions/auth";
+import { loginActionEmploye } from "../redux/actions/auth";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -13,15 +13,17 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    const role = e.target.role.value;
     const cb = () => {
       navigate("/home");
     };
 
     try {
       const results = await dispatch(
-        loginAction({
+        loginActionEmploye({
           email,
           password,
+          role,
           cb,
         })
       );
@@ -32,7 +34,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen overflow-y-hidden">
       <Left />
       <div className="md:basis-1/2 bg-[#E5E5E]">
         <div className="pt-28 px-16">
@@ -42,9 +44,12 @@ const Login = () => {
             ipsum et dui rhoncus auctor.
           </p>
           {errMessage ? (
-            <div className="mt-3 bg-[#ED2E7E] py-3 pl-3 font-semibold rounded-md tracking-wider text-center">
-              {errMessage}
+            <div className="alert alert-error shadow-lg">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              <span>{errMessage}</span>
             </div>
+          </div>
           ) : null}
           <form className="mt-2" onSubmit={login}>
             <div className="flex flex-col mb-7">
@@ -65,6 +70,13 @@ const Login = () => {
                 placeholder="Masukan kata sandi"
               />
             </div>
+            <input
+                className="hidden"
+                type="text"
+                name="role"
+                placeholder="Masukan kata sandi"
+                defaultValue="EMPLOYE"
+              />
             <div className="flex justify-end">
               <Link to="/reset-password">Lupa kata sandi?</Link>
             </div>
@@ -79,6 +91,12 @@ const Login = () => {
             Anda belum punya akun?{" "}
             <Link to="/register" className="text-[#FBB017]">
               Daftar disini
+            </Link>
+          </p>
+          <p className="text-center">
+            Login sebagai perekrut?{" "}
+            <Link to="/login-recruiter" className="text-[#FBB017]">
+              Login disini 
             </Link>
           </p>
         </div>

@@ -41,7 +41,7 @@ const RegisterRecruiter = () => {
     }
   };
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen overflow-y-hidden">
       <Left />
       <div className="md:basis-1/2 bg-[#E5E5E] overflow-y-auto">
         <div className="py-28 px-16">
@@ -51,9 +51,14 @@ const RegisterRecruiter = () => {
             ipsum et dui rhoncus auctor.
           </p>
           {errMessage ? (
-            <div className="mt-3 bg-[#ED2E7E] py-3 pl-3 font-semibold rounded-md tracking-wider text-center">
-              {errMessage}
-            </div>
+             <div className="alert alert-error shadow-lg">
+             <div>
+               <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+               </svg>
+               <span>{errMessage}</span>
+             </div>
+           </div>
           ) : null}
           <form onSubmit={registerEmploye}>
             <div className="flex flex-col mb-7 mt-3">
@@ -132,6 +137,12 @@ const RegisterRecruiter = () => {
             Anda sudah punya akun?{" "}
             <Link to="/login" className="text-[#FBB017]">
               Masuk disini
+            </Link>
+          </p>
+          <p className="text-center">
+            Daftar sebagai pencari kerja?{" "}
+            <Link to="/register" className="text-[#FBB017]">
+              Daftar disini 
             </Link>
           </p>
         </div>

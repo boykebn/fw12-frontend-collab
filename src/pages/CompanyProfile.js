@@ -1,8 +1,27 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useParams, useNavigate } from "react-router-dom";
+import http from '../helpers/http'
 
 const CompanyProfile = () => {
+  const [company, setCompany] = React.useState({})
+  const {id} = useParams()
+  const navigate = useNavigate()
+
+  React.useEffect(() => {
+    getCompany()
+  }, [id, company])
+  
+  const getCompany = async ()=> {
+    const {data} = await http().get(`/users/company/${id}`)
+    setCompany(data.results)
+  }
+
+  const editProfile = () => {
+    navigate('/edit-company-profile', {state: company})
+  }
+
   return (
     <div>
       <Navbar />
@@ -16,21 +35,22 @@ const CompanyProfile = () => {
           <div className="bg-white text-center rounded-bl-[8px] rounded-br-[8px]">
             <div className="pt-[74px]">
               <div>
-                <div className="text-[#1F2A36] text-[22px] leading-[56px] font-semibold">PT. Martabat Jaya Abadi</div>
-                <div className="text-[#1F2A36] text-[14px] leading-[24px] mb-[10px]">Financial</div>
+                <div className="text-[#1F2A36] text-[22px] leading-[56px] font-semibold">{company.name}</div>
+                <div className="text-[#1F2A36] text-[14px] leading-[24px] mb-[10px]">{company.field}</div>
               </div>
               <div className="flex justify-center mb-[20px]">
                 <img className="" src={require("../assets/images/map.png")} alt="map" />
-                <div className="text-[#9EA0A5] text-[14px] leading-[20px] pl-[17px]">Purwokerto, Jawa Tengah</div>
+                <div className="text-[#9EA0A5] text-[14px] leading-[20px] pl-[17px]">{company.address}</div>
               </div>
               <div className=" md:flex justify-center md:px-24 lg:px-32 mb-[20px]">
                 <div className="text-[#9EA0A5] text-[14px] leading-[24px]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum erat orci, mollis nec gravida sed, ornare quis urna. Curabitur eu lacus fringilla, vestibulum risus at.
+                {company.bio}
                 </div>
               </div>
               <div className="mb-[42px]">
-                <button className="border-1 w-[297px] h-[50px] bg-[#5E50A1] py-[15px] rounded text-white font-bold hover:scale-[1.05] hover:ease-in duration-100">Edit profile</button>
-              </div>
+                <button onClick={() => editProfile()} className="border-1 bg-[#5E50A1] px-[104px] py-[15px] rounded text-white font-bold">Edit profile</button>
+              </div >
+                
               <div className="flex justify-center">
                 <div className="mr-[20px] ">
                   <div className="mb-[33px]">
@@ -48,16 +68,16 @@ const CompanyProfile = () => {
                 </div>
                 <div className="text-[#9EA0A5] text-[14px] leading-[20px] mb-[238px]">
                   <div className="flex justify-start mb-[37px] ">
-                    <span>martabatjaya@gmail.com</span>
+                    <span>{company.email}</span>
                   </div>
                   <div className="flex justify-start mb-[37px]">
-                    <span>martabat_jaya</span>
+                    <span>{company.instagram}</span>
                   </div>
                   <div className="flex justify-start mb-[37px]">
-                    <span>0821-8190-1821</span>
+                    <span>{company.phoneNumber}</span>
                   </div>
                   <div className="flex justify-start mb-[37px]">
-                    <span>Martabat Jaya Abadi</span>
+                    <span>{company.linkedin}</span>
                   </div>
                 </div>
               </div>

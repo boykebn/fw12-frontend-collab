@@ -15,5 +15,8 @@ module.exports = {
       inset: ["group-focus"],
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
+  daisyui: {
+    themes: false,
+  },
 };

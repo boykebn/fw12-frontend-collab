@@ -3,7 +3,7 @@ import React from "react";
 const Hire = () => {
     return (
         <div>
-            <div className="lg:flex lg:items-center lg:py-5 hidden lg:px-28">
+            <div className="md:flex md:items-center md:py-5 hidden md:px-28">
                 <div className="flex-1">
                     <img className="w-32" src={require('../assets/images/navlogo.png')} alt='logo' />
                 </div>

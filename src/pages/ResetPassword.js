@@ -15,7 +15,7 @@ const ResetPassword = () => {
         navigate('/request-reset', {state: email})
     }
     return (
-        <div className="flex h-screen">
+        <div className="flex h-screen overflow-y-hidden">
             <Left />
             <div className="md:basis-1/2 bg-[#E5E5E] overflow-y-auto">
                 <div className="py-28 px-16">
