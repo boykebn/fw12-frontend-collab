@@ -15,6 +15,7 @@ Web application that connect jobseeker and recruiter to help find their dream jo
 - Hiring page
 - Company profile
 - Chat between jobseeker and company
+- And more
 
 ## Built with
 
