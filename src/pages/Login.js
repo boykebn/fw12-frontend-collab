@@ -1,7 +1,7 @@
 import Left from "../components/authComponents/Left";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { loginActionEmploye } from "../redux/actions/auth";
+import { loginAction } from "../redux/actions/auth";
 import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -13,17 +13,15 @@ const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const role = e.target.role.value;
     const cb = () => {
       navigate("/home");
     };
 
     try {
       const results = await dispatch(
-        loginActionEmploye({
+        loginAction({
           email,
           password,
-          role,
           cb,
         })
       );
@@ -70,13 +68,7 @@ const Login = () => {
                 placeholder="Masukan kata sandi"
               />
             </div>
-            <input
-                className="hidden"
-                type="text"
-                name="role"
-                placeholder="Masukan kata sandi"
-                defaultValue="EMPLOYE"
-              />
+          
             <div className="flex justify-end">
               <Link to="/reset-password">Lupa kata sandi?</Link>
             </div>
@@ -91,12 +83,6 @@ const Login = () => {
             Anda belum punya akun?{" "}
             <Link to="/register" className="text-[#FBB017]">
               Daftar disini
-            </Link>
-          </p>
-          <p className="text-center">
-            Login sebagai perekrut?{" "}
-            <Link to="/login-recruiter" className="text-[#FBB017]">
-              Login disini 
             </Link>
           </p>
         </div>

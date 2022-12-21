@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginAction, loginActionEmploye, loginActionRecruiter, registerEmployeAction, registerRecruiterAction } from "../actions/auth";
+import { loginAction, registerEmployeAction, registerRecruiterAction } from "../actions/auth";
 
 const initialState = {
-    token: null
+    token: null,
+    role: null
 }
 
 const authReducer = createSlice({
@@ -13,13 +14,8 @@ const authReducer = createSlice({
     },
     extraReducers: (build) => {
         build.addCase(loginAction.fulfilled, (state, {payload}) => {
-            state.token = payload
-        });
-        build.addCase(loginActionEmploye.fulfilled, (state, {payload}) => {
-            state.token = payload
-        });
-        build.addCase(loginActionRecruiter.fulfilled, (state, {payload}) => {
-            state.token = payload
+            state.token = payload.token
+            state.role = payload.role
         });
         build.addCase(registerEmployeAction.fulfilled, (state, {payload}) => {
             state.token = payload
