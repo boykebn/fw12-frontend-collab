@@ -69,7 +69,7 @@ const Home = () => {
         </div>
         <main className="grid px-3 justify-center md:flex md:flex-col lg:flex lg:flex-col md:pl-10 md:pr-32 lg:pl-[110px] lg:pr-[170px] pb-[50px] gap-5">
           {profile?.results?.map((bio) => (
-            <div className="flex flex-col justify-start pt-10 gap-10 mx-10 items-center bg-white w-80 md:w-full lg:w-full md:flex md:flex-row md:pl-[20px] md:pt-[21px] md:pb-[38px] md:pr-[20px] md:mb-[1px] rounded-[8px] lg:justify-start">
+            <div className="flex flex-col justify-start pt-10 gap-10 mx-10 px-5 items-center bg-white w-80 md:w-full lg:w-full md:flex md:flex-row md:pl-[20px] md:pt-[21px] md:pb-[38px] md:pr-[20px] md:mb-[1px] rounded-[8px] lg:justify-start">
               <div>
                 <img className="w-28 md:w-[120px] md:h-[120px] md:rounded-[50%] lg:w-[120px] lg:h-[120px] lg:rounded-[50%]" src={require("../assets/images/testi1.png")} alt="testi1" />
               </div>
@@ -86,7 +86,7 @@ const Home = () => {
                   <img className="mr-[15px] w-[16px] h-[16px]" src={require("../assets/images/map.png")} alt="map" />
                   <span className="text-[#9EA0A5] text-[14px] leading-[20px]">{bio.address}</span>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-2 justify-center items-center">
+                <div className="flex flex-wrap md:grid-cols-3 gap-2 justify-center items-center">
                   {bio.skills.map((skill) => (
                     <div>
                       <div className="border-1 bg-[#FBB01799] rounded-[4px] px-2 py-[5px] text-white text-center">{skill}</div>
