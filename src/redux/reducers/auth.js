@@ -1,29 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { loginAction, registerEmployeAction, registerRecruiterAction } from "../actions/auth";
+import {
+  loginAction,
+  registerEmployeAction,
+  registerRecruiterAction,
+} from "../actions/auth";
 
 const initialState = {
-    token: null,
-    role: null
-}
+  token: null,
+  role: null,
+};
 
 const authReducer = createSlice({
-    name: 'auth',
-    initialState,
-    reducers:{
+  name: "auth",
+  initialState,
+  reducers: {},
+  extraReducers: (build) => {
+    build.addCase(loginAction.fulfilled, (state, { payload }) => {
+      state.token = payload.token;
+      state.role = payload.role;
+    });
+    build.addCase(registerEmployeAction.fulfilled, (state, { payload }) => {
+      state.token = payload.token;
+      state.role = payload.role;
+    });
+    build.addCase(registerRecruiterAction.fulfilled, (state, { payload }) => {
+      state.token = payload.token;
+      state.role = payload.role;
+    });
+  },
+});
 
-    },
-    extraReducers: (build) => {
-        build.addCase(loginAction.fulfilled, (state, {payload}) => {
-            state.token = payload.token
-            state.role = payload.role
-        });
-        build.addCase(registerEmployeAction.fulfilled, (state, {payload}) => {
-            state.token = payload
-        });
-        build.addCase(registerRecruiterAction.fulfilled, (state, {payload}) => {
-            state.token = payload
-        });
-    }
-})
-
-export default authReducer.reducer
+export default authReducer.reducer;

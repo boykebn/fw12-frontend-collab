@@ -26,7 +26,7 @@ export const registerEmployeAction = createAsyncThunk(
         confirmPassword,
       });
       cb();
-      return data.results.token;
+      return data.results;
     } catch (error) {
       return error.response.data.message;
     }
