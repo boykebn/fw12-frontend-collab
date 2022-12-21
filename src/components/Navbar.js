@@ -17,9 +17,9 @@ const Navbar = (props) => {
               </div>
             </div>
             <div>
-              <button>
+              <Link to='/chat'>
                 <img className="" src={require("../assets/images/mail.png")} alt="mail" />
-              </button>
+              </Link>
             </div>
             <div>
               <Link to="/edit-jobseeker-profile">
