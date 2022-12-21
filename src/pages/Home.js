@@ -18,7 +18,7 @@ const Home = () => {
 
   React.useEffect(() => {
     axios
-      .get(`https://fw12-backend-collab.vercel.app/users/skill?page=${page}&search=${search}&sortBy=${sortBy}&status=${status}` )
+      .get(`https://fw12-backend-collab.vercel.app/users/skill?page=${page}&search=${search}&sortBy=${sortBy}&status=${status}`)
       .then((data) => data.data)
       .then((res) => {
         pageAmount(res.pageInfo.totalData);
@@ -66,16 +66,12 @@ const Home = () => {
       <Header />
       <div className="bg-[#E5E5E5] ">
         <div className="px-10 py-[50px] md:px-[150px]">
-
           <div>
             <div className="bg-white rounded-[6px] hidden lg:block w-max">
               <div className="pl-[20px] pr-[10px] py-[6px] flex items-center">
                 <div className="flex-1 text-[14px] text-[#9EA0A5] leading-[20px] relative">
-                  <input
-                    className=" py-[19px] pl-[15px] pr-14 w-[38rem] outline-1 outline-[#9EA0A5]"
-                    placeholder="Search for any skill"
-                  />
-                  <CiSearch className="absolute w-8 h-8 top-3 right-3"/>
+                  <input id="search-input" className=" py-[19px] pl-[15px] pr-14 w-[38rem] outline-1 outline-[#9EA0A5]" placeholder="Search for any skill" />
+                  <CiSearch className="absolute w-8 h-8 top-3 right-3" />
                 </div>
                 <div className="md:flex items-center">
                   <div className="mr-[25px]">
@@ -93,7 +89,9 @@ const Home = () => {
                     <span className="text-[#9EA0A5] leading-[20px] font-semibold">Kategori</span>
                   </div> */}
                   <div>
-                    <button onClick={() => searchUser()} className=" border-1 bg-[#5E50A1] py-[17px] px-[34px] rounded text-white font-semibold">Search</button>
+                    <button onClick={() => searchUser()} className=" border-1 bg-[#5E50A1] py-[17px] px-[34px] rounded text-white font-semibold">
+                      Search
+                    </button>
                   </div>
                 </div>
               </div>
@@ -109,9 +107,6 @@ const Home = () => {
               <option value="Fulltime">Sortir berdasarkan Fulltime</option>
             </select>
           </div>
-          {/* <div className="mr-[50px]">
-            <span className="text-[#9EA0A5] leading-[20px] font-semibold">Kategori</span>
-          </div> */}
           <div>
             <button onClick={() => searchUser()} className=" border-1 bg-[#5E50A1] py-[17px] px-[34px] rounded text-white font-semibold">
               Search
@@ -137,7 +132,8 @@ const Home = () => {
                   <img className="mr-[15px] w-[16px] h-[16px]" src={require("../assets/images/map.png")} alt="map" />
                   <span className="text-[#9EA0A5] text-[14px] leading-[20px]">{bio.address}</span>
                 </div>
-                <div className="flex flex-wrap md:grid-cols-3 gap-2">
+
+                <div className="flex flex-wrap md:grid-cols-3 gap-2 ">
                   {bio.skills.map((skill) => (
                     <div>
                       <div className="border-1 bg-[#FBB01799] rounded-[4px] px-2 py-[5px] text-white text-center">{skill}</div>
@@ -146,7 +142,7 @@ const Home = () => {
                 </div>
               </div>
               <div className="flex justify-center items-center">
-                <Link to={"/jobseeker-profile/"+bio.id} className="border-1 bg-[#5E50A1] py-[17px] px-[27px] rounded font-semibold text-white leading-[20px] text-[16px]">
+                <Link to={"/jobseeker-profile/" + bio.id} className="border-1 bg-[#5E50A1] py-[17px] px-[27px] rounded font-semibold text-white leading-[20px] text-[16px]">
                   Lihat Profile
                 </Link>
               </div>
