@@ -7,6 +7,7 @@ export default function DataDiriForm() {
   const token = useSelector((state) => state.auth.token);
 
   const updateUserInfo = async (e) => {
+    // e.preventDefault();
     const values = {
       name: e.target.name.value,
       jobDesk: e.target.jobDesk.value,
@@ -14,8 +15,9 @@ export default function DataDiriForm() {
       instagram: e.target.instagram.value,
       github: e.target.github.value,
       gitlab: e.target.gitlab.value,
-      bio: e.target.description.value,
+      bio: e.target.bio.value,
     };
+    console.log(values.bio);
     await http(token).patch(`/profile`, values);
   };
 
@@ -109,7 +111,7 @@ export default function DataDiriForm() {
             Deskripsi singkat
           </label>
           <textarea
-            name="description"
+            name="bio"
             id="decryption"
             className="deskripsi-singkatClassName"
             placeholder="Tuliskan deskripsi singkat"

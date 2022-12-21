@@ -13,7 +13,11 @@ const initialState = {
 const authReducer = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    logout: (state, action) => {
+      return initialState;
+    },
+  },
   extraReducers: (build) => {
     build.addCase(loginAction.fulfilled, (state, { payload }) => {
       state.token = payload.token;
@@ -29,5 +33,7 @@ const authReducer = createSlice({
     });
   },
 });
+
+export const { logout } = authReducer.actions;
 
 export default authReducer.reducer;

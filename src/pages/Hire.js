@@ -1,10 +1,6 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
 
 const Hire = () => {
-  const { state } = useLocation();
-  console.log(state);
-
   return (
     <div>
       <div className="md:flex md:items-center md:py-5 hidden md:px-28">
