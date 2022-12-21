@@ -1,9 +1,6 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-// import { Link, useParams } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-// import jwt_decode from "jwt-decode";
 import http from "../helpers/http";
 
 const Hire = () => {
@@ -46,27 +43,6 @@ const Hire = () => {
     }
 
     return (
-=======
-import React from "react";
-
-const Hire = () => {
-  return (
-    <div>
-      <div className="md:flex md:items-center md:py-5 hidden md:px-28">
-        <div className="flex-1">
-          <img
-            className="w-32"
-            src={require("../assets/images/navlogo.png")}
-            alt="logo"
-          />
-        </div>
-        <div className="mr-14">
-          <img src={require("../assets/images/bell.png")} alt="bell" />
-        </div>
-        <div className="mr-14">
-          <img src={require("../assets/images/mail.png")} alt="mail" />
-        </div>
->>>>>>> b4ec1c22f50d478d745e00dd0f7a983e3588ea7c
         <div>
         <div className="md:flex md:items-center md:py-5 hidden md:px-28">
             <div className="flex-1">
