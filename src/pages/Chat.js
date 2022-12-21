@@ -5,8 +5,8 @@ const Chat = () => {
     return (
         <div>
             <Navbar />
-            <div className="h-screen pt-32 px-20 flex gap-5 pb-10 bg-[#E5E5E5]">
-                <div className="bg-white rounded basis-[30%]">
+            <div className="h-screen pt-32 md:px-20 px-5 md:flex md:flex-row flex flex-col gap-5 pb-10 bg-[#E5E5E5]">
+                <div className="bg-white rounded md:basis-[30%]">
                     <h1 className="text-lg px-4 py-5 font-bold border-b">Chat</h1>
                     <div className="flex px-4 py-5 flex items-center gap-2">
                         <div>
@@ -18,7 +18,7 @@ const Chat = () => {
                         </div>
                     </div>
                 </div>
-                <div className="bg-white rounded basis-[70%] relative">
+                <div className="bg-white rounded md:basis-[70%] relative h-screen md:h-full">
                     <div className="px-4 py-3 flex items-center gap-3 border-b">
                         <div>
                             <img className="rounded-full" src={require('../assets/images/chat/profile-picture.png')} alt="profile" />
