@@ -2,41 +2,34 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useParams, useNavigate } from "react-router-dom";
-import http from '../helpers/http'
+import http from "../helpers/http";
 
 const CompanyProfile = () => {
-  const [company, setCompany] = React.useState({})
-  const {id} = useParams()
-  const navigate = useNavigate()
+  const [company, setCompany] = React.useState({});
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   React.useEffect(() => {
-    getCompany()
-  }, [id, company])
-  
-  const getCompany = async ()=> {
-    const {data} = await http().get(`/users/company/${id}`)
-    setCompany(data.results)
-  }
+    getCompany();
+  }, [id, company]);
+
+  const getCompany = async () => {
+    const { data } = await http().get(`/users/company/${id}`);
+    setCompany(data.results);
+  };
 
   const editProfile = () => {
-    navigate('/edit-company-profile', {state: company})
-  }
+    navigate("/edit-company-profile", { state: company });
+  };
 
   return (
     <div className="font-openSans">
       <Navbar />
       <div className="bg-[#E5E5E5]">
-<<<<<<< HEAD
-        <div className="px-10 md:px-[150px] pt-[170px] pb-[270px] flex flex-col justify-center">
-          <div className=" bg-[#5E50A1] rounded-tl-[8px] rounded-tr-[8px] md:w-full">
-            <div className="flex justify-center pt-[114px] mb-[-50px] relative">
-              <img className="" src={require("../assets/images/test3.png")} alt="test3" />
-=======
         <div className="px-5 pt-10 pb-28 md:px-[150px] lg:px-[150px] md:pt-[170px] md:pb-[200px] lg:pb-[270px] flex flex-col justify-center">
           <div className="bg-white md:bg-[#5E50A1] lg:bg-[#5E50A1] h-48 rounded-tl-[8px] rounded-tr-[8px] md:w-full">
             <div className="flex justify-center pt-[114px] h-48 mb-[-50px]">
-              <img className="h-[150px] w-[150px] rounded-[50%] absolute" src={require("../assets/images/luffy.jpg")} alt="test3"/>
->>>>>>> b022f96269ca820806a8e9e4ddb27a654a76eadc
+              <img className="h-[150px] w-[150px] rounded-[50%] absolute" src={require("../assets/images/luffy.jpg")} alt="test3" />
             </div>
           </div>
           <div className="bg-white text-center rounded-bl-[8px] rounded-br-[8px]">
@@ -50,14 +43,14 @@ const CompanyProfile = () => {
                 <div className="text-[#9EA0A5] text-[14px] leading-[20px] pl-[17px]">{company.address}</div>
               </div>
               <div className=" md:flex justify-center md:px-24 lg:px-32 mb-[20px]">
-                <div className="text-[#9EA0A5] text-[14px] leading-[24px]">
-                {company.bio}
-                </div>
+                <div className="text-[#9EA0A5] text-[14px] leading-[24px]">{company.bio}</div>
               </div>
               <div className="mb-[42px]">
-                <button onClick={() => editProfile()} className="border-1 bg-[#5E50A1] px-[104px] py-[15px] rounded text-white font-bold">Edit profile</button>
-              </div >
-                
+                <button onClick={() => editProfile()} className="border-1 bg-[#5E50A1] px-[104px] py-[15px] rounded text-white font-bold">
+                  Edit profile
+                </button>
+              </div>
+
               <div className="flex justify-center">
                 <div className="mr-[20px] ">
                   <div className="mb-[33px]">
