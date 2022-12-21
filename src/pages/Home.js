@@ -5,6 +5,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl"; // Arrow icon
+import { CiSearch } from "react-icons/ci"; // Search icon
 
 const Home = () => {
   const [profile, setProfile] = React.useState([]);
@@ -62,23 +64,25 @@ const Home = () => {
     <div className="font-openSans">
       <Navbar />
       <Header />
-      <div className="bg-[#E5E5E5]">
+      <div className="bg-[#E5E5E5] ">
         <div className="px-10 py-[50px] md:px-[150px]">
-          <div className="">
-            <div className="bg-white rounded-[6px]">
+
+          <div>
+            <div className="bg-white rounded-[6px] hidden lg:block w-max">
               <div className="pl-[20px] pr-[10px] py-[6px] flex items-center">
-                <div className="flex-1 text-[14px] text-[#9EA0A5] leading-[20px]">
-                  <input id="search-input" className="pr-48 py-[19px] pl-[15px] md:pr-[360px]" placeholder="Search for any skill" />
+                <div className="flex-1 text-[14px] text-[#9EA0A5] leading-[20px] relative">
+                  <input
+                    className=" py-[19px] pl-[15px] pr-14 w-[38rem] outline-1 outline-[#9EA0A5]"
+                    placeholder="Search for any skill"
+                  />
+                  <CiSearch className="absolute w-8 h-8 top-3 right-3"/>
                 </div>
-                <div className="hidden md:flex items-center">
-                  <div className="mr-[30px]">
-                    <img className="" src={require("../assets/images/search.png")} alt="search" />
-                  </div>
+                <div className="md:flex items-center">
                   <div className="mr-[25px]">
                     <img className="" src={require("../assets/images/Line.png")} alt="Line" />
                   </div>
                   <div className="mr-[50px]">
-                    <select onClick={(e) => sort(e.target.value)} className="text-[#9EA0A5] text-[16px]">
+                    <select onClick={(e) => sort(e.target.value)} className="text-[#9EA0A5] text-[16px] bg-white outline-none">
                       <option className="hidden">Sort</option>
                       <option value="Skill">Sortir berdasarkan Skill</option>
                       <option value="Freelancer">Sortir berdasarkan Freelance</option>
@@ -133,10 +137,11 @@ const Home = () => {
                   <img className="mr-[15px] w-[16px] h-[16px]" src={require("../assets/images/map.png")} alt="map" />
                   <span className="text-[#9EA0A5] text-[14px] leading-[20px]">{bio.address}</span>
                 </div>
-                <div className="flex">
+            
+                <div className="flex flex-wrap md:grid-cols-3 gap-2 justify-center items-center">
                   {bio.skills.map((skill) => (
-                    <div className="w-max mr-3">
-                      <div className="border-1 bg-[#FBB01799] rounded-[4px] py-[5px] px-[23px] text-white">{skill}</div>
+                    <div>
+                      <div className="border-1 bg-[#FBB01799] rounded-[4px] px-2 py-[5px] text-white text-center">{skill}</div>
                     </div>
                   ))}
                 </div>
