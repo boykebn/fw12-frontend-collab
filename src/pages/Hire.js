@@ -10,6 +10,7 @@ const Hire = () => {
   const [dataEmploye, setDataEmployee] = useState({});
   const [purposeList, setPurposeList] = useState([]);
   const [purposeId, setPurposeId] = useState(null);
+  const [successMessage, setSuccessMessage] = useState("");
 
   useEffect(() => {
     getUserProfile();
@@ -34,7 +35,9 @@ const Hire = () => {
     const message = e.target.message.value;
 
     const { data } = await http(token).post(`/contacts`, { purposeId, message });
-    return data
+
+    setSuccessMessage("Pesan telah dikirim")
+    return data;
   };
 
   return (
@@ -89,12 +92,24 @@ const Hire = () => {
 
         <div className="px-10 max-[768px]:px-0">
           <h1 className="font-semibold text-2xl leading-10 mb-6">Hubungi {dataEmploye.name}</h1>
-          <p className="leading-6	text-lg mb-12">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</p>
+          <p className="leading-6	text-lg mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</p>
           <form onSubmit={toContacts} className="flex flex-col">
+            {successMessage && (
+              <div className="alert alert-success shadow-lg mb-5">
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>{successMessage}</span>
+                </div>
+              </div>
+            )}
             <label className="text-xs leading-4	mb-2.5">Tujuan tentang pesan ini</label>
             <select onClick={(e) => setPurposeId(e.target.value)} className="leading-5 text-sm rounded-md mb-6 p-2.5">
               {purposeList.map((o, i) => (
-                <option key={i} value={o.id}>{o.name}</option>
+                <option key={i} value={o.id}>
+                  {o.name}
+                </option>
               ))}
               ;
             </select>
