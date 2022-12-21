@@ -3,7 +3,6 @@ import { HiOutlineMapPin } from "react-icons/hi2";
 import { RiPencilFill } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import http from "../../../../helpers/http";
-import { success } from "daisyui/src/colors";
 
 export default function Profile(props) {
   const { profile } = props;
