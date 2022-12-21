@@ -34,7 +34,8 @@ const ConfirmRelogin = () => {
     <div className="flex h-screen overflow-y-hidden">
       <Left />
       <div className="md:basis-1/2 bg-[#E5E5E] overflow-y-auto">
-        <div className="py-28 px-16">
+        <div className="md:py-28 py-10 px-16">
+          <img className="md:hidden block mb-10" src={require("../assets/images/navlogo.png")} alt="logo" />
           <h2 className="text-2xl font-bold mb-3">Please login with your account</h2>
           <p className="text-gray-500 mb-10">We have an an email containing a password reset instruction toyour email. please check your email.</p>
           <form onSubmit={login}>

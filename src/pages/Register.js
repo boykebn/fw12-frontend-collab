@@ -40,7 +40,8 @@ const Register = () => {
     <div className="flex h-screen overflow-y-hidden">
       <Left />
       <div className="md:basis-1/2 bg-[#E5E5E] overflow-y-auto">
-        <div className="py-28 px-16">
+        <div className="md:py-28 py-10 px-16">
+          <img className="md:hidden block mb-10" src={require("../assets/images/navlogo.png")} alt="logo" />
           <h2 className="text-2xl font-bold mb-3">Halo, Pewpeople</h2>
           <p className="text-gray-500 mb-10">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</p>
           {errMessage ? (
@@ -87,7 +88,7 @@ const Register = () => {
           <p className="text-center">
             Daftar sebagai perekrut?{" "}
             <Link to="/register-recruiter" className="text-[#FBB017]">
-              Daftar disini 
+              Daftar disini
             </Link>
           </p>
         </div>

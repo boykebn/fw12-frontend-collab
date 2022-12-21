@@ -16,15 +16,25 @@ import RegisterRecruiter from "./RegisterRecruiter";
 import ProfileJobseeker from "./ProfileJobseeker";
 import ExperiencesJobseeker from "./ExperienceJobseeker";
 import Hire from "./Hire";
+import Chat from "./Chat";
 
 import PrivateRoute from "./middlewareComponent/PrivateRoute";
+import PrivateRouteCompany from "./middlewareComponent/PrivateRouteCompany";
+
 const Main = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />}></Route>
-        <Route path="/home" element={<Home />}></Route>
-        <Route path="/sort" element={<Sort />}></Route>
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
+          }
+        ></Route>
+        {/* <Route path="/sort" element={<Sort />}></Route> */}
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
         <Route
@@ -35,12 +45,30 @@ const Main = () => {
         <Route path="/confirm-password" element={<ConfirmPassword />}></Route>
         <Route path="/confirm-relogin" element={<ConfirmRelogin />}></Route>
         <Route path="/request-reset" element={<RequestPassword />}></Route>
-        <Route path="/company-profile/:id" element={<CompanyProfile />}></Route>
+        <Route
+          path="/company-profile/:id"
+          element={
+            <PrivateRoute>
+              <CompanyProfile />
+            </PrivateRoute>
+          }
+        ></Route>
         <Route
           path="/edit-jobseeker-profile"
-          element={<EditJobseekerProfile />}
+          element={
+            <PrivateRoute>
+              <EditJobseekerProfile />
+            </PrivateRoute>
+          }
         />
-        <Route path="edit-company-profile" element={<EditCompanyProfile />} />
+        <Route
+          path="edit-company-profile"
+          element={
+            <PrivateRoute>
+              <EditCompanyProfile />
+            </PrivateRoute>
+          }
+        />
         <Route
           path="jobseeker-profile/:id"
           element={
@@ -58,6 +86,7 @@ const Main = () => {
           }
         />
         <Route path="/hire" element={<Hire />}></Route>
+        <Route path="/chat" element={<Chat />}></Route>
       </Routes>
     </BrowserRouter>
   );

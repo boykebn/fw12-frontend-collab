@@ -18,7 +18,8 @@ const ResetPassword = () => {
         <div className="flex h-screen overflow-y-hidden">
             <Left />
             <div className="md:basis-1/2 bg-[#E5E5E] overflow-y-auto">
-                <div className="py-28 px-16">
+                <div className="md:py-28 py-10 px-16">
+                    <img className="md:hidden block mb-10" src={require('../assets/images/navlogo.png')} alt="logo" />
                     <h2 className="text-2xl font-bold mb-3">Reset password</h2>
                     <form onSubmit={forgotPassword}>
                     <p className="text-gray-500 mb-10">Enter your user account's verified email address and we will send you a password reset link.</p>
