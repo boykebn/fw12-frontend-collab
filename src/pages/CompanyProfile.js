@@ -30,6 +30,7 @@ const CompanyProfile = () => {
           <div className="bg-white md:bg-[#5E50A1] lg:bg-[#5E50A1] h-48 rounded-tl-[8px] rounded-tr-[8px] md:w-full">
             <div className="flex justify-center pt-[114px] h-48 mb-[-50px]">
               <img className="h-[150px] w-[150px] rounded-[50%] absolute" src={require("../assets/images/luffy.jpg")} alt="test3" />
+              <img className="h-[150px] w-[150px] rounded-[50%] absolute" src={require("../assets/images/luffy.jpg")} alt="test3" />
             </div>
           </div>
           <div className="bg-white text-center rounded-bl-[8px] rounded-br-[8px]">
