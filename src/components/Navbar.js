@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Navbar = (props) => {
   return (
     <div>
-      <nav className="fixed px-5 py-[33px] md:px-20 lg:pl-[150px] lg:pr-[130px] bg-white w-full z-10">
+      <nav className="fixed px-5 py-[33px] md:px-20 lg:pl-[150px] lg:pr-[130px] bg-white w-full z-10 top-0">
         <div className="container m-auto flex justify-between items-center text-gray-700">
           <img className="" src={require("../assets/images/navlogo.png")} alt="navlogo" />
           <div className="flex items-center pr-0 text-base font-semibold gap-6 md:gap-12 lg:gap-12">
