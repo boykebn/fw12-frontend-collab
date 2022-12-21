@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Peworld
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![image](https://user-images.githubusercontent.com/86812576/208875608-24029a82-867b-43f5-9266-480c13656a92.png)
 
-## Available Scripts
+![image](https://user-images.githubusercontent.com/86812576/208875852-8dee398c-88f6-4898-89cf-c0ec0ab581e3.png)
 
-In the project directory, you can run:
+## About The Project
 
-### `npm start`
+Web application that connect jobseeker and recruiter to help find their dream job and talent for company
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Built with
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Frontend](https://github.com/rioprayoga23/fw12-frontend-collab)
+1. [React js ](https://reactjs.org/)
+2. [Tailwind](https://tailwindcss.com/)
 
-### `npm test`
+- [Backend](https://github.com/rioprayoga23/fw12-backend-collab)
+1. [Node js](https://nodejs.org/en/)
+2. [Express js](https://expressjs.com/en/starter/installing.html)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Requirements
+1. [Node js](https://nodejs.org/en/)
+2. Backenda [API ](fw12-backend-collab.vercel.app)
+3. NPM Modules
 
-### `npm run build`
+### How to run application?
+1. Clone this project to your local computer
+2. Open this project in your code editor and install few modules
+3. type `npm i`
+4. type `npm i redux`
+5. type `npm i react-router-dom`
+6. type `npm i axios`
+7. to start this project type `npm start` in [fw12-frontend-collab](https://github.com/rioprayoga23/fw12-frontend-collab)
+### Acknowledgements
+- [Redux](https://redux.js.org/)
+- [Axios](https://axios-http.com/docs/intro)
+- argon
+- [jwt token](https://www.npmjs.com/package/jsonwebtoken)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## What's in Backend?
+### CRUD database for:
+- users
+- profile
+- portofolio
+- company
+- contacts
+- purposes
+- userskills
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Main Endpoint
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+|                              URL                         | Method | Description |
+| -------------------------------------------------------- |:------:| --------------------------------------------:|
+| fw12-backend-collab.vercel.app/auth/login                |   GET  |                                        LOGIN |
+| fw12-backend-collab.vercel.app/auth/register-employe     |   POST |                             REGISTER EMPLOYE |
+| fw12-backend-collab.vercel.app/auth/register-recruiter   |   POST |                           REGISTER RECRUITER |
+| fw12-backend-collab.vercel.app/profile/:id               |   GET  |                 GET PROFILE BY ID WHEN CLICK |
+| fw12-backend-collab.vercel.app/profile/portofolio/:id    |   POST |                       GET PORTOFOLIO PROFILE |
+| fw12-backend-collab.vercel.app/profile/experiences/:id   |   GET  |                       GET EXPERINCES PROFILE |
+| fw12-backend-collab.vercel.app/profile/myAccount         |   GET  |       GET PROFILE BY USER LOGIN (With token) |
+| fw12-backend-collab.vercel.app/profile                   |   GET  |          UPDATE PROFILE EMPLOYE (With token) |
+| fw12-backend-collab.vercel.app/profile/skills            |   GET  |  ADD SKILL IN EDIT PROFILE PAGE (With token) |
