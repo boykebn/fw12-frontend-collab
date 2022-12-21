@@ -7,32 +7,7 @@ export const loginAction = createAsyncThunk(
     try {
       const { data } = await http().post("/auth/login", { email, password });
       cb();
-      return data.results.token;
-    } catch (error) {
-      return error.response.data.message;
-    }
-  }
-);
-export const loginActionEmploye = createAsyncThunk(
-  "auth/loginEmployeAsync",
-  async ({ email, password, role, cb }) => {
-    try {
-      const { data } = await http().post("/auth/login-employe", { email, password, role });
-      cb();
-      return data.results.token;
-    } catch (error) {
-      return error.response.data.message;
-    }
-  }
-);
-
-export const loginActionRecruiter = createAsyncThunk(
-  "auth/loginRecruiterAsync",
-  async ({ email, password, role, cb }) => {
-    try {
-      const { data } = await http().post("/auth/login-recruiter", { email, password, role });
-      cb();
-      return data.results.token;
+      return data.results;
     } catch (error) {
       return error.response.data.message;
     }
@@ -51,7 +26,7 @@ export const registerEmployeAction = createAsyncThunk(
         confirmPassword,
       });
       cb();
-      return data.results.token;
+      return data.results;
     } catch (error) {
       return error.response.data.message;
     }
@@ -81,7 +56,7 @@ export const registerRecruiterAction = createAsyncThunk(
         field,
       });
       cb();
-      return data.results.token;
+      return data.results;
     } catch (error) {
       return error.response.data.message;
     }

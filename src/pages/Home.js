@@ -18,7 +18,9 @@ const Home = () => {
   }, []);
 
   const getProfile = async () => {
-    const { data } = await axios.get("https://fw12-backend-collab.vercel.app/users/skill");
+    const { data } = await axios.get(
+      "https://fw12-backend-collab.vercel.app/users/skill"
+    );
     return data;
   };
 
@@ -32,14 +34,25 @@ const Home = () => {
             <div className="bg-white rounded-[6px] hidden">
               <div className="pl-[20px] pr-[10px] py-[6px] flex items-center">
                 <div className="flex-1 text-[14px] text-[#9EA0A5] leading-[20px]">
-                  <input className="pr-48 py-[19px] pl-[15px] md:pr-[360px]" placeholder="Search for any skill" />
+                  <input
+                    className="pr-48 py-[19px] pl-[15px] md:pr-[360px]"
+                    placeholder="Search for any skill"
+                  />
                 </div>
                 <div className="md:flex items-center">
                   <div className="mr-[30px]">
-                    <img className="" src={require("../assets/images/search.png")} alt="search" />
+                    <img
+                      className=""
+                      src={require("../assets/images/search.png")}
+                      alt="search"
+                    />
                   </div>
                   <div className="mr-[25px]">
-                    <img className="" src={require("../assets/images/Line.png")} alt="Line" />
+                    <img
+                      className=""
+                      src={require("../assets/images/Line.png")}
+                      alt="Line"
+                    />
                   </div>
                   <div className="mr-[50px]">
                     <select className="text-[#9EA0A5] text-[16px]">
@@ -50,7 +63,9 @@ const Home = () => {
                     </select>
                   </div>
                   <div>
-                    <button className=" border-1 bg-[#5E50A1] py-[17px] px-[34px] rounded text-white font-semibold">Search</button>
+                    <button className=" border-1 bg-[#5E50A1] py-[17px] px-[34px] rounded text-white font-semibold">
+                      Search
+                    </button>
                   </div>
                 </div>
               </div>
@@ -67,7 +82,9 @@ const Home = () => {
             </select>
           </div>
           <div>
-            <button className=" border-1 bg-[#5E50A1] py-[17px] px-[34px] rounded text-white font-semibold">Search</button>
+            <button className=" border-1 bg-[#5E50A1] py-[17px] px-[34px] rounded text-white font-semibold">
+              Search
+            </button>
           </div>
         </div>
         <main className="grid grid-cols-2 px-3 justify-center md:flex md:flex-col lg:flex lg:flex-col md:px-20 lg:px-[150px] pb-[50px] gap-5">
@@ -78,12 +95,14 @@ const Home = () => {
               </div>
               <div className="flex flex-col justify-center items-center gap-5 md:gap-2 md:items-start lg:mr-64">
                 <div>
-                  <span className="text-[#1F2A36] text-2xl md:text-[22px] font-bold">{bio.name}</span>
+                  <span className="text-[#1F2A36] text-2xl md:text-[22px] font-bold">
+                    {bio.name}
+                  </span>
                 </div>
-                <div className="w-[150px] text-center md:w-max">
+                <div className="">
                   <span className="text-[#9EA0A5] text-[14px] leading-[20px] ">{bio.jobDesk}</span>
                 </div>
-                <div className="hidden md:flex items-center">
+                <div className="">
                   <img className="mr-[15px] w-[16px] h-[16px]" src={require("../assets/images/map.png")} alt="map" />
                   <span className="text-[#9EA0A5] text-[14px] leading-[20px]">{bio.address}</span>
                 </div>
