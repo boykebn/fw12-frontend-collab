@@ -16,6 +16,7 @@ import RegisterRecruiter from "./RegisterRecruiter";
 import ProfileJobseeker from "./ProfileJobseeker";
 import ExperiencesJobseeker from "./ExperienceJobseeker";
 import Hire from "./Hire";
+import Chat from "./Chat";
 
 import PrivateRoute from "./middlewareComponent/PrivateRoute";
 import PrivateRouteCompany from "./middlewareComponent/PrivateRouteCompany";
@@ -85,6 +86,7 @@ const Main = () => {
           }
         />
         <Route path="/hire" element={<Hire />}></Route>
+        <Route path="/chat" element={<Chat />}></Route>
       </Routes>
     </BrowserRouter>
   );

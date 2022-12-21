@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { Link } from "react-router-dom";
-import { SlArrowLeft, SlArrowRight } from "react-icons/sl"; // Arrow icon
+// import { SlArrowLeft, SlArrowRight } from "react-icons/sl"; // Arrow icon
 import { CiSearch } from "react-icons/ci"; // Search icon
 
 const Home = () => {

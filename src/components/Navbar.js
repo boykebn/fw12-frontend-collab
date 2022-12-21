@@ -13,7 +13,7 @@ const Navbar = (props) => {
   };
   return (
     <div>
-      <nav className="fixed px-5 py-[33px] md:px-20 lg:pl-[150px] lg:pr-[130px] bg-white w-full z-10">
+      <nav className="fixed px-5 py-[33px] md:px-20 lg:pl-[150px] lg:pr-[130px] bg-white w-full z-10 top-0">
         <div className="container m-auto flex justify-between items-center text-gray-700">
           <Link to={"/home"}>
             <img
@@ -40,13 +40,13 @@ const Navbar = (props) => {
               </div>
             </div>
             <div>
-              <button>
+              <Link to="/chat">
                 <img
                   className=""
                   src={require("../assets/images/mail.png")}
                   alt="mail"
                 />
-              </button>
+              </Link>
             </div>
             <div>
               <div className="dropdown dropdown-end">
