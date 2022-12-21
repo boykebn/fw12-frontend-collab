@@ -26,17 +26,10 @@ const CompanyProfile = () => {
     <div className="font-openSans">
       <Navbar />
       <div className="bg-[#E5E5E5]">
-<<<<<<< HEAD
-        <div className="px-10 md:px-[150px] pt-[170px] pb-[270px] flex flex-col justify-center">
-          <div className=" bg-[#5E50A1] rounded-tl-[8px] rounded-tr-[8px] md:w-full">
-            <div className="flex justify-center pt-[114px] mb-[-50px] relative">
-              <img className="" src={require("../assets/images/test3.png")} alt="test3" />
-=======
         <div className="px-5 pt-10 pb-28 md:px-[150px] lg:px-[150px] md:pt-[170px] md:pb-[200px] lg:pb-[270px] flex flex-col justify-center">
           <div className="bg-white md:bg-[#5E50A1] lg:bg-[#5E50A1] h-48 rounded-tl-[8px] rounded-tr-[8px] md:w-full">
             <div className="flex justify-center pt-[114px] h-48 mb-[-50px]">
               <img className="h-[150px] w-[150px] rounded-[50%] absolute" src={require("../assets/images/luffy.jpg")} alt="test3"/>
->>>>>>> b022f96269ca820806a8e9e4ddb27a654a76eadc
             </div>
           </div>
           <div className="bg-white text-center rounded-bl-[8px] rounded-br-[8px]">
