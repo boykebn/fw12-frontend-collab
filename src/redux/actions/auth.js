@@ -13,6 +13,31 @@ export const loginAction = createAsyncThunk(
     }
   }
 );
+export const loginActionEmploye = createAsyncThunk(
+  "auth/loginEmployeAsync",
+  async ({ email, password, role, cb }) => {
+    try {
+      const { data } = await http().post("/auth/login-employe", { email, password, role });
+      cb();
+      return data.results.token;
+    } catch (error) {
+      return error.response.data.message;
+    }
+  }
+);
+
+export const loginActionRecruiter = createAsyncThunk(
+  "auth/loginRecruiterAsync",
+  async ({ email, password, role, cb }) => {
+    try {
+      const { data } = await http().post("/auth/login-recruiter", { email, password, role });
+      cb();
+      return data.results.token;
+    } catch (error) {
+      return error.response.data.message;
+    }
+  }
+);
 
 export const registerEmployeAction = createAsyncThunk(
   "auth/registerEmployeAction",
