@@ -59,12 +59,12 @@ Web application that connect jobseeker and recruiter to help find their dream jo
 
 |                              URL                         | Method | Description |
 | -------------------------------------------------------- |:------:| --------------------------------------------:|
-| fw12-backend-collab.vercel.app/auth/login                |   GET  |                                        LOGIN |
+| fw12-backend-collab.vercel.app/auth/login                |   POST |                                        LOGIN |
 | fw12-backend-collab.vercel.app/auth/register-employe     |   POST |                             REGISTER EMPLOYE |
 | fw12-backend-collab.vercel.app/auth/register-recruiter   |   POST |                           REGISTER RECRUITER |
 | fw12-backend-collab.vercel.app/profile/:id               |   GET  |                 GET PROFILE BY ID WHEN CLICK |
-| fw12-backend-collab.vercel.app/profile/portofolio/:id    |   POST |                       GET PORTOFOLIO PROFILE |
+| fw12-backend-collab.vercel.app/profile/portofolio/:id    |   GET  |                       GET PORTOFOLIO PROFILE |
 | fw12-backend-collab.vercel.app/profile/experiences/:id   |   GET  |                       GET EXPERINCES PROFILE |
 | fw12-backend-collab.vercel.app/profile/myAccount         |   GET  |       GET PROFILE BY USER LOGIN (With token) |
-| fw12-backend-collab.vercel.app/profile                   |   GET  |          UPDATE PROFILE EMPLOYE (With token) |
-| fw12-backend-collab.vercel.app/profile/skills            |   GET  |  ADD SKILL IN EDIT PROFILE PAGE (With token) |
+| fw12-backend-collab.vercel.app/profile                   |   PATCH|          UPDATE PROFILE EMPLOYE (With token) |
+| fw12-backend-collab.vercel.app/profile/skills            |   POST |  ADD SKILL IN EDIT PROFILE PAGE (With token) |

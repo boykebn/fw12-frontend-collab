@@ -35,7 +35,8 @@ const Login = () => {
     <div className="flex h-screen overflow-y-hidden">
       <Left />
       <div className="md:basis-1/2 bg-[#E5E5E]">
-        <div className="pt-28 px-16">
+        <div className="md:pt-28 pt-10 px-16">
+          <img className="md:hidden block mb-10" src={require('../assets/images/navlogo.png')} alt="logo" />
           <h2 className="text-2xl font-bold mb-3">Halo, Pewpeople</h2>
           <p className="text-gray-500 mb-2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod
