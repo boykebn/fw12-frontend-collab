@@ -3,7 +3,25 @@ import AssideNav from "../AssideNav";
 import { IoMdCloudUpload, IoIosResize } from "react-icons/io";
 import { BsImage } from "react-icons/bs";
 
+import jwt_decode from "jwt-decode";
+import { useSelector } from "react-redux";
+import http from "../../../../../helpers/http";
+
 export default function Portfolio() {
+  const token = useSelector((state) => state.auth.token);
+  const { id } = jwt_decode(token);
+
+  const updatePortofolio = async (e) => {
+    const values = {
+      link: e.target.link.value,
+      name: e.target.name.value,
+      userId: id,
+      picture: "",
+    };
+
+    await http(token).post(`/portofolio`, values);
+  };
+
   return (
     <div className="bg-white rounded-[8px] p-1 mt-5 font-openSans">
       <AssideNav
@@ -11,14 +29,14 @@ export default function Portfolio() {
         nav1="Portfolio"
       />
       <hr className="w-full" />
-      <form action="" className="px-7 mb-10">
+      <form action="" className="px-7 mb-10" onSubmit={updatePortofolio}>
         <div className="flex flex-col gap-2 mt-7">
           <label htmlFor="aplikasi" className="text-[#9EA0A5] text-xs">
             Nama aplikasi
           </label>
           <input
             type="text"
-            name="aplikasi"
+            name="name"
             className="dataDiri-InputClass"
             id="aplikasi"
             placeholder="Masukan nama aplikasi"
@@ -30,7 +48,7 @@ export default function Portfolio() {
           </label>
           <input
             type="text"
-            name="repository"
+            name="link"
             className="dataDiri-InputClass"
             id="repository"
             placeholder="Masukan link repository"
@@ -64,7 +82,10 @@ export default function Portfolio() {
           </div>
         </div>
         <hr className="w-full mt-7" />
-        <button className="btn-portfolioClassName hover:scale-[1.05]">
+        <button
+          className="btn-portfolioClassName hover:scale-[1.05]"
+          type="submit"
+        >
           Tambah portofolio
         </button>
       </form>
