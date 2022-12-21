@@ -86,17 +86,16 @@ const Home = () => {
                   <img className="mr-[15px] w-[16px] h-[16px]" src={require("../assets/images/map.png")} alt="map" />
                   <span className="text-[#9EA0A5] text-[14px] leading-[20px]">{bio.address}</span>
                 </div>
-                <div className="flex flex-wrap md:grid-cols-3 gap-2 justify-center items-center">
+                <div className="flex flex-wrap md:grid-cols-3 gap-2">
                   {bio.skills.map((skill) => (
                     <div>
                       <div className="border-1 bg-[#FBB01799] rounded-[4px] px-2 py-[5px] text-white text-center">{skill}</div>
                     </div>
                   ))}
                 </div>
-                <div className="mb-5 md:hidden"></div>
               </div>
-              <div className="flex justify-center items-center justify-self-end">
-                <button className="hidden md:block lg:block border-1 bg-[#5E50A1] py-[17px] md:px-3 lg:px-[27px] rounded font-semibold text-white leading-[20px] text-[16px] hover:scale-[1.05] ease-in duration-100">Lihat Profile</button>
+              <div className="flex justify-center items-center">
+                <Link to="/jobseeker-profile/:id" className="w-72 m-5 text-center border-1 bg-[#5E50A1] py-[17px] md:w-[150px] md:m-0 md:px-3 lg:px-[27px] rounded font-semibold text-white leading-[20px] text-[16px] hover:scale-[1.05] ease-in duration-100">Lihat Profile</Link>
               </div>
             </div>
           ))}
