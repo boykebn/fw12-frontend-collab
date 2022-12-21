@@ -59,12 +59,70 @@ Web application that connect jobseeker and recruiter to help find their dream jo
 
 |                              URL                         | Method | Description |
 | -------------------------------------------------------- |:------:| --------------------------------------------:|
-| fw12-backend-collab.vercel.app/auth/login                |   POST |                                        LOGIN |
-| fw12-backend-collab.vercel.app/auth/register-employe     |   POST |                             REGISTER EMPLOYE |
-| fw12-backend-collab.vercel.app/auth/register-recruiter   |   POST |                           REGISTER RECRUITER |
-| fw12-backend-collab.vercel.app/profile/:id               |   GET  |                 GET PROFILE BY ID WHEN CLICK |
-| fw12-backend-collab.vercel.app/profile/portofolio/:id    |   GET  |                       GET PORTOFOLIO PROFILE |
-| fw12-backend-collab.vercel.app/profile/experiences/:id   |   GET  |                       GET EXPERINCES PROFILE |
-| fw12-backend-collab.vercel.app/profile/myAccount         |   GET  |       GET PROFILE BY USER LOGIN (With token) |
-| fw12-backend-collab.vercel.app/profile                   |   PATCH|          UPDATE PROFILE EMPLOYE (With token) |
-| fw12-backend-collab.vercel.app/profile/skills            |   POST |  ADD SKILL IN EDIT PROFILE PAGE (With token) |
+| fw12-backend-collab.vercel.app/auth/login                | POST  |                                        LOGIN |
+| fw12-backend-collab.vercel.app/auth/register-employe     | POST  |                             REGISTER EMPLOYE |
+| fw12-backend-collab.vercel.app/auth/register-recruiter   | POST  |                           REGISTER RECRUITER |
+| fw12-backend-collab.vercel.app/profile/:id               | GET   |                 GET PROFILE BY ID WHEN CLICK |
+| fw12-backend-collab.vercel.app/profile/portofolio/:id    | GET   |                       GET PORTOFOLIO PROFILE |
+| fw12-backend-collab.vercel.app/profile/experiences/:id   | GET   |                       GET EXPERINCES PROFILE |
+| fw12-backend-collab.vercel.app/profile/myAccount         | GET   |       GET PROFILE BY USER LOGIN (With token) |
+| fw12-backend-collab.vercel.app/profile                   | PATCH |          UPDATE PROFILE EMPLOYE (With token) |
+| fw12-backend-collab.vercel.app/profile/skills            | POST  |  ADD SKILL IN EDIT PROFILE PAGE (With token) |
+| /users                                                   | GET   |                               READ ALL USERS |
+| /users/skill                                             | GET   |                           READ USER BY SKILL |
+| /users/company/:id                                       | GET   |                     READ COMPANY BY USERS ID |
+| /users/:id                                                | GET   |                                  READ USERS |
+| /users                                                   | POST  |                                  CREATE USER |
+| /users/:id                                               | PATCH |                                  UPDATE USER |
+| /users/:id                                               | DELETE|                                  DELETE USER |
+| /userSkill                                               | GET   |                         READ ALL USER SKILLS |
+| /userSkill/:id                                           | GET   |                             READ USERS SKILL |
+| /uuserSkill                                              | POST  |                            CREATE USER SKILL |
+| /userSkill/:id                                           | PATCH |                            UPDATE USER SKILL |
+| /userSkill/:id                                           | DELETE|                            DELETE USER SKILL |
+| /skills                                                  | GET   |                              READ ALL SKILLS |
+| /skills/:id                                              | GET   |                                   READ SKILL |
+| /skills                                                  | POST  |                                 CREATE SKILL |
+| /skills/:id                                              | PATCH |                                 UPDATE SKILL |
+| /skills/:id                                              | DELETE|                                 DELETE SKILL |
+| /resetPassword                                           | GET   |                      READ ALL RESET PASSWORD |
+| /resetPassword/:id                                       | GET   |                          READ RESET PASSWORD |
+| /resetPassword                                           | POST  |                        CREATE RESET PASSWORD |
+| /resetPassword/:id                                       | PATCH |                        UPDATE RESET PASSWORD |
+| /resetPassword/:id                                       | DELETE|                        DELETE RESET PASSWORD |
+| /purpose                                                 | GET   |                             READ ALL PURPOSE |
+| /purpose/:id                                             | GET   |                                 READ PURPOSE |
+| /purpose                                                 | POST  |                               CREATE PURPOSE |
+| /purpose/:id                                             | PATCH |                               UPDATE PURPOSE |
+| /purpose/:id                                             | DELETE|                               DELETE PURPOSE |
+| /profile/myAccount                                       | GET   |                        READ PROFILE BY TOKEN |
+| /profile/experiences/:id                                 | GET   |                              READ EXPERIENCE |
+| /profile/portofolio/:id                                  | GET  |                               READ PORTOFOLIO |
+| /profile/skills                                          | GET |                           READ SKILLS BY TOKEN |
+| /profile/:id                                             | GET   |                                 READ PROFILE |
+| /profile                                                 | PATCH |                              UPDATE EMPLOYEE |
+| /profile/skills                                          | POST |                                 UPDATE SKILLS |
+| /portofolio                                              | GET   |                         READ ALL PORTOFOLIOS |
+| /portofolio/:id                                          | GET   |                              READ PORTOFOLIO |
+| /portofolio                                              | POST  |                            CREATE PORTOFOLIO |
+| /portofolio/:id                                          | PATCH |                            UPDATE PORTOFOLIO |
+| /portofolio/:id                                          | DELETE|                            DELETE PORTOFOLIO |
+| /experiences                                             | GET   |                         READ ALL EXPERIENCES |
+| /experiences/:id                                         | GET   |                              READ EXPERIENCE |
+| /experiences                                             | POST  |                            CREATE EXPERIENCE |
+| /experiences/:id                                         | PATCH |                            UPDATE EXPERIENCE |
+| /experiences/:id                                         | DELETE|                            DELETE EXPERIENCE |
+| /contacts                                                | GET   |                            READ ALL CONTACTS |
+| /contacts/:id                                            | GET   |                                 READ CONTACT |
+| /contacts                                                | POST  |                               CREATE CONTACT |
+| /contacts/:id                                            | PATCH |                               UPDATE CONTACT |
+| /contacts/:id                                            | DELETE|                               DELETE CONTACT |
+| /company                                                 | GET   |                           READ ALL COMPANIES |
+| /company/:id                                             | GET   |                                 READ COMPANY |
+| /company                                                 | POST  |                               CREATE COMPANY |
+| /company/:id                                             | PATCH |                               UPDATE COMPANY |
+| /company/:id                                             | DELETE|                               DELETE COMPANY |
+
+
+
+
