@@ -1,11 +1,13 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout as logoutAction } from "../redux/reducers/auth";
+
 
 const Navbar = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const role = useSelector(state => state.auth.role)
 
   const handlerLogout = () => {
     dispatch(logoutAction());
@@ -63,6 +65,9 @@ const Navbar = (props) => {
                   <li>
                     <Link to="/edit-jobseeker-profile">Profile</Link>
                   </li>
+                  {role === 'RECRUITER' ? <li>
+                    <Link to="/company-profile">Company Profile</Link>
+                  </li> : null}
                   <li>
                     <button onClick={handlerLogout}>Logout</button>
                   </li>

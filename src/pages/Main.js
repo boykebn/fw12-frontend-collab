@@ -46,7 +46,7 @@ const Main = () => {
         <Route path="/confirm-relogin" element={<ConfirmRelogin />}></Route>
         <Route path="/request-reset" element={<RequestPassword />}></Route>
         <Route
-          path="/company-profile/:id"
+          path="/company-profile"
           element={
             <PrivateRoute>
               <CompanyProfile />

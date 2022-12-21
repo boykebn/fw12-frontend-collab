@@ -1,21 +1,25 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import http from "../helpers/http";
+import { useSelector } from "react-redux";
 
 const CompanyProfile = () => {
   const [company, setCompany] = React.useState({});
-  const { id } = useParams();
   const navigate = useNavigate();
+  const token = useSelector(state => state.auth.token)
 
   React.useEffect(() => {
     getCompany();
-  }, [id, company]);
+  }, [company]);
 
   const getCompany = async () => {
-    const { data } = await http().get(`/users/company/${id}`);
-    setCompany(data.results);
+    const { data } = await http(token).get(`/profile/myAccount`);
+    const { results } = data;
+   
+    const company = await http().get(`/users/company/${results.id}`);
+    setCompany(company.data.results);
   };
 
   const editProfile = () => {
