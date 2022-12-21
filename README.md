@@ -8,6 +8,14 @@
 
 Web application that connect jobseeker and recruiter to help find their dream job and talent for company
 
+## Feature
+- Jobseeker profile
+- Jobseeker experiences
+- Jobseeker portofolio
+- Hiring page
+- Company profile
+- Chat between jobseeker and company
+
 ## Built with
 
 - [Frontend](https://github.com/rioprayoga23/fw12-frontend-collab)
