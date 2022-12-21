@@ -14,10 +14,10 @@ import EditJobseekerProfile from "./EditJobseekerProfile";
 import EditCompanyProfile from "./EditCompanyProfile";
 import RegisterRecruiter from "./RegisterRecruiter";
 import ProfileJobseeker from "./ProfileJobseeker";
-import ExperincesJobseeker from "./ExperienceJobseeker";
+import ExperiencesJobseeker from "./ExperienceJobseeker";
+import Hire from "./Hire";
 
 import PrivateRoute from "./middlewareComponent/PrivateRoute";
-import ExperienceJobseeker from "./ExperienceJobseeker";
 const Main = () => {
   return (
     <BrowserRouter>
@@ -53,10 +53,11 @@ const Main = () => {
           path="jobseeker-profile/experiences/:id"
           element={
             <PrivateRoute>
-              <ExperienceJobseeker />
+              <ExperiencesJobseeker />
             </PrivateRoute>
           }
         />
+        <Route path="/hire" element={<Hire />}></Route>
       </Routes>
     </BrowserRouter>
   );

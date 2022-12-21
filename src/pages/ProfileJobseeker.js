@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import http from "../helpers/http";
-import jwt_decode from "jwt-decode";
 
 const ProfileJobseeker = () => {
+  const navigate = useNavigate();
+
   const { id } = useParams();
   const [dataUser, setDataUser] = useState({});
   const [portofolio, setPortofolio] = useState([]);
-  const token = useSelector((state) => state.auth.token);
-  const decoded = jwt_decode(token);
+  const role = useSelector((state) => state.auth.role);
 
   const getUserProfile = async () => {
     const { data } = await http().get(`/profile/${id}`);
@@ -23,6 +23,11 @@ const ProfileJobseeker = () => {
     const { data } = await http().get(`/profile/portofolio/${id}`);
     const { results } = data;
     setPortofolio(results);
+  };
+
+  const hire = (e) => {
+    e.preventDefault();
+    navigate("/hire", { state: id });
   };
 
   useEffect(() => {
@@ -88,8 +93,11 @@ const ProfileJobseeker = () => {
               <p className="text-[#9EA0A5] mb-4">{dataUser?.bio}</p>
             </div>
             <div className="mb-8">
-              {decoded?.role === "RECRUITER" && (
-                <button className="w-full h-12 bg-[#5E50A1] text-white text-lg font-bold border-2 rounded-md">
+              {role === "RECRUITER" && (
+                <button
+                  className="w-full h-12 bg-[#5E50A1] text-white text-lg font-bold border-2 rounded-md"
+                  onClick={hire}
+                >
                   Hire
                 </button>
               )}
