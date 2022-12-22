@@ -23,7 +23,7 @@ export default function SkillForm() {
 
   useEffect(() => {
     getSkills();
-  }, []);
+  }, [dataSkills]);
 
   return (
     <div className="py-1 my-5 font-openSans bg-white rounded-[8px]">
