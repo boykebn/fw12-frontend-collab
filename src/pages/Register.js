@@ -2,6 +2,7 @@ import React from "react";
 import Left from "../components/authComponents/Left";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { BsEyeSlash, BsEye } from "react-icons/bs";
 import { registerEmployeAction } from "../redux/actions/auth";
 import { Formik, Form, Field } from "formik";
 import YupPassword from "yup-password";
@@ -35,6 +36,8 @@ const registerScheme = Yup.object().shape({
 const Register = () => {
   const dispatch = useDispatch();
   const [errMessage, setErrMessage] = React.useState("");
+  const [showTop, setShowTop] = React.useState(false);
+  const [showBottom, setShowBottom] = React.useState(false);
   const navigate = useNavigate();
 
   const registerEmploye = async (value) => {
@@ -48,6 +51,15 @@ const Register = () => {
       console.log(error);
     }
   };
+
+  const handlerShowTop = () => {
+    setShowTop(!showTop);
+  };
+
+  const handlerShowBottom = () => {
+    setShowBottom(!showBottom);
+  };
+
   return (
     <div className="flex h-screen overflow-y-hidden">
       <Left />
@@ -94,14 +106,20 @@ const Register = () => {
                   <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type="telp" name="phoneNumber" placeholder="Masukan no handphone" />
                   {errors.phoneNumber && touched.phoneNumber ? <div className="text-red-500 text-sm">{errors.phoneNumber}</div> : null}
                 </div>
-                <div className="flex flex-col mb-7">
+                <div className="flex flex-col mb-7 relative">
                   <label className="text-gray-400 mb-1">Kata sandi</label>
-                  <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type="password" name="password" placeholder="Masukan kata sandi" />
+                  <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type={showTop ? "text" : "password"} name="password" placeholder="Masukan kata sandi" />
+                  <label onClick={handlerShowTop} className="absolute right-5 top-10 cursor-pointer">
+                    {showTop ? <BsEyeSlash className="w-[20px] h-[20px]" /> : <BsEye className="w-[20px] h-[20px]" />}
+                  </label>
                   {errors.password && touched.password ? <div className="text-red-500 text-sm">{errors.password}</div> : null}
                 </div>
-                <div className="flex flex-col mb-7">
+                <div className="flex flex-col mb-7 relative">
                   <label className="text-gray-400 mb-1">Konfirmasi kata sandi</label>
-                  <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type="password" name="confirmPassword" placeholder="Masukan konfirmasi kata sandi" />
+                  <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type={showBottom ? "text" : "password"} name="confirmPassword" placeholder="Masukan konfirmasi kata sandi" />
+                  <label onClick={handlerShowBottom} className="absolute right-5 top-10 cursor-pointer">
+                    {showBottom ? <BsEyeSlash className="w-[20px] h-[20px]" /> : <BsEye className="w-[20px] h-[20px]" />}
+                  </label>
                   {errors.confirmPassword && touched.confirmPassword ? <div className="text-red-500 text-sm">{errors.confirmPassword}</div> : null}
                 </div>
                 <button type="submit" className="flex justify-center bg-[#FBB017] rounded text-white w-full py-2 my-5">

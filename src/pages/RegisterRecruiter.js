@@ -2,36 +2,54 @@ import React from "react";
 import Left from "../components/authComponents/Left";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { BsEyeSlash, BsEye } from "react-icons/bs";
 import { registerRecruiterAction } from "../redux/actions/auth";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import YupPassword from "yup-password";
+import * as Yup from "yup";
 
+const phoneRegEx = /^(^08)(\d{8,10})$/;
+
+const registerRecruiterScheme = Yup.object().shape({
+  name: Yup.string().required("Masukkan nama"),
+  company: Yup.string().required("Masukkan nama perusahaan"),
+  field: Yup.string().required("Masukan bidang perusahaan"),
+  email: Yup.string().email("Email tidak valid").required("Masukkan email"),
+  password: Yup.string()
+    .password()
+    .min(8, "Panjang minimal 8")
+    .minLowercase(1, "Minimal 1 huruf kecil")
+    .minUppercase(1, "Minimal 1 kapital")
+    .minSymbols(1, "Minimal 1 simbol")
+    .minNumbers(1, "Minimal 1 angka")
+    .required("Masukkan kata sandi"),
+  confirmPassword: Yup.string()
+    .password()
+    .min(8, "Panjang minimal 8")
+    .minLowercase(1, "Minimal 1 huruf kecil")
+    .minUppercase(1, "Minimal 1 kapital")
+    .minSymbols(1, "Minimal 1 simbol")
+    .minNumbers(1, "Minimal 1 angka")
+    .required("Masukkan konfirmasi kata sandi"),
+  phoneNumber: Yup.string().matches(phoneRegEx, "nomor telepon tidak valid").required("Masukkan nomor telepon"),
+});
+
+YupPassword(Yup);
 const RegisterRecruiter = () => {
   const dispatch = useDispatch();
   const [errMessage, setErrMessage] = React.useState("");
+  const [showTop, setShowTop] = React.useState(false);
+  const [showBottom, setShowBottom] = React.useState(false);
   const navigate = useNavigate();
 
-  const registerEmploye = async (e) => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const company = e.target.perusahaan.value;
-    const field = e.target.bidangPerusahaan.value;
-    const phoneNumber = e.target.nohp.value;
-    const password = e.target.password.value;
-    const confirmPassword = e.target.cpassword.value;
-
+  const registerRecruiter = async (value) => {
     const cb = () => {
       navigate("/home");
     };
     try {
       const results = await dispatch(
         registerRecruiterAction({
-          name,
-          email,
-          phoneNumber,
-          password,
-          confirmPassword,
-          company,
-          field,
+          ...value,
           cb,
         })
       );
@@ -40,6 +58,15 @@ const RegisterRecruiter = () => {
       console.log(error);
     }
   };
+
+  const handlerShowTop = () => {
+    setShowTop(!showTop);
+  };
+
+  const handlerShowBottom = () => {
+    setShowBottom(!showBottom);
+  };
+
   return (
     <div className="flex h-screen overflow-y-hidden">
       <Left />
@@ -58,39 +85,68 @@ const RegisterRecruiter = () => {
               </div>
             </div>
           ) : null}
-          <form onSubmit={registerEmploye}>
-            <div className="flex flex-col mb-7 mt-3">
-              <label className="text-gray-400 mb-1">Nama</label>
-              <input className="border rounded py-2 px-4 bg-white" type="text" name="name" placeholder="Masukan nama panjang" />
-            </div>
-            <div className="flex flex-col mb-7">
-              <label className="text-gray-400 mb-1">Email</label>
-              <input className="border rounded py-2 px-4 bg-white" type="email" name="email" placeholder="Masukan alamat email" />
-            </div>
-            <div className="flex flex-col mb-7">
-              <label className="text-gray-400 mb-1">Perusahaan</label>
-              <input className="border rounded py-2 px-4 bg-white" type="text" name="perusahaan" placeholder="Masukan nama perusahaan" />
-            </div>
-            <div className="flex flex-col mb-7">
-              <label className="text-gray-400 mb-1">Bidang Perusahaan</label>
-              <input className="border rounded py-2 px-4 bg-white" type="text" name="bidangPerusahaan" placeholder="Bidang perusahaan anda" />
-            </div>
-            <div className="flex flex-col mb-7">
-              <label className="text-gray-400 mb-1">No handphone</label>
-              <input className="border rounded py-2 px-4 bg-white" type="telp" name="nohp" placeholder="Masukan no handphone" />
-            </div>
-            <div className="flex flex-col mb-7">
-              <label className="text-gray-400 mb-1">Kata sandi</label>
-              <input className="border rounded py-2 px-4 bg-white" type="password" name="password" placeholder="Masukan kata sandi" />
-            </div>
-            <div className="flex flex-col mb-7">
-              <label className="text-gray-400 mb-1">Konfirmasi kata sandi</label>
-              <input className="border rounded py-2 px-4 bg-white" type="password" name="cpassword" placeholder="Masukan konfirmasi kata sandi" />
-            </div>
-            <button type="submit" className="flex justify-center bg-[#FBB017] rounded text-white w-full py-2 my-5">
-              Daftar
-            </button>
-          </form>
+          <Formik
+            initialValues={{
+              name: "",
+              email: "",
+              company: "",
+              field: "",
+              phoneNumber: "",
+              password: "",
+              confirmPassword: "",
+            }}
+            validationSchema={registerRecruiterScheme}
+            onSubmit={registerRecruiter}
+          >
+            {({ errors, touched }) => (
+              <Form>
+                <div className="flex flex-col mb-7 mt-3">
+                  <label className="text-gray-400 mb-1">Nama</label>
+                  <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type="text" name="name" placeholder="Masukan nama panjang" />
+                  {errors.name && touched.name ? <div className="text-red-500 text-sm">{errors.name}</div> : null}
+                </div>
+                <div className="flex flex-col mb-7">
+                  <label className="text-gray-400 mb-1">Email</label>
+                  <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type="email" name="email" placeholder="Masukan alamat email" />
+                  {errors.email && touched.email ? <div className="text-red-500 text-sm">{errors.email}</div> : null}
+                </div>
+                <div className="flex flex-col mb-7">
+                  <label className="text-gray-400 mb-1">Perusahaan</label>
+                  <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type="text" name="company" placeholder="Masukan nama perusahaan" />
+                  {errors.company && touched.company ? <div className="text-red-500 text-sm">{errors.company}</div> : null}
+                </div>
+                <div className="flex flex-col mb-7">
+                  <label className="text-gray-400 mb-1">Bidang Perusahaan</label>
+                  <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type="text" name="field" placeholder="Bidang perusahaan anda" />
+                  {errors.field && touched.field ? <div className="text-red-500 text-sm">{errors.field}</div> : null}
+                </div>
+                <div className="flex flex-col mb-7">
+                  <label className="text-gray-400 mb-1">No handphone</label>
+                  <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type="telp" name="phoneNumber" placeholder="Masukan no handphone" />
+                  {errors.phoneNumber && touched.phoneNumber ? <div className="text-red-500 text-sm">{errors.phoneNumber}</div> : null}
+                </div>
+                <div className="flex flex-col mb-7 relative">
+                  <label className="text-gray-400 mb-1">Kata sandi</label>
+                  <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type={showTop ? "text" : "password"} name="password" placeholder="Masukan kata sandi" />
+                  <label onClick={handlerShowTop} className="absolute right-5 top-10 cursor-pointer">
+                    {showTop ? <BsEyeSlash className="w-[20px] h-[20px]" /> : <BsEye className="w-[20px] h-[20px]" />}
+                  </label>
+                  {errors.password && touched.password ? <div className="text-red-500 text-sm">{errors.password}</div> : null}
+                </div>
+                <div className="flex flex-col mb-7 relative">
+                  <label className="text-gray-400 mb-1">Konfirmasi kata sandi</label>
+                  <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type={showBottom ? "text" : "password"} name="confirmPassword" placeholder="Masukan konfirmasi kata sandi" />
+                  <label onClick={handlerShowBottom} className="absolute right-5 top-10 cursor-pointer">
+                    {showBottom ? <BsEyeSlash className="w-[20px] h-[20px]" /> : <BsEye className="w-[20px] h-[20px]" />}
+                  </label>
+                  {errors.confirmPassword && touched.confirmPassword ? <div className="text-red-500 text-sm">{errors.confirmPassword}</div> : null}
+                </div>
+                <button type="submit" className="flex justify-center bg-[#FBB017] rounded text-white w-full py-2 my-5">
+                  Daftar
+                </button>
+              </Form>
+            )}
+          </Formik>
           <p className="text-center">
             Anda sudah punya akun?{" "}
             <Link to="/login" className="text-[#FBB017]">

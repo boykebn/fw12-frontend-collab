@@ -2,6 +2,7 @@ import Left from "../components/authComponents/Left";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { loginAction } from "../redux/actions/auth";
+import { BsEyeSlash, BsEye } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
 import YupPassword from "yup-password";
@@ -14,6 +15,7 @@ const loginScheme = Yup.object().shape({
 });
 const Login = () => {
   const [errMessage, setErrMessage] = React.useState("");
+  const [show, setShow] = React.useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -28,6 +30,10 @@ const Login = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handlerShow = () => {
+    setShow(!show);
   };
 
   return (
@@ -63,9 +69,12 @@ const Login = () => {
                   <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type="email" name="email" placeholder="Masukan alamat email" />
                   {errors.email && touched.email ? <div className="text-red-500 text-sm">{errors.email}</div> : null}
                 </div>
-                <div className="flex flex-col mb-3">
+                <div className="flex flex-col mb-3 relative">
                   <label className="text-gray-400 mb-1">Password</label>
-                  <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type="password" name="password" placeholder="Masukan kata sandi" />
+                  <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type={show ? "text" : "password"} name="password" placeholder="Masukan kata sandi" />
+                  <label onClick={handlerShow} className="absolute right-5 top-10 cursor-pointer">
+                    {show ? <BsEyeSlash className="w-[20px] h-[20px]" /> : <BsEye className="w-[20px] h-[20px]" />}
+                  </label>
                   {errors.password && touched.password ? <div className="text-red-500 text-sm">{errors.password}</div> : null}
                 </div>
 

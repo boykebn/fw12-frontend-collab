@@ -15,7 +15,6 @@ const ResetPassword = () => {
   const navigate = useNavigate();
 
   const forgotPassword = async (value) => {
-    // value.preventDefault();
     const email = value.email;
 
     const { data } = await http().post("/auth/forgotPassword", { email });
