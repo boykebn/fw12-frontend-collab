@@ -24,9 +24,9 @@ const ResetPassword = () => {
   return (
     <div className="flex h-screen overflow-y-hidden">
       <Left />
-      <div className="md:basis-1/2 bg-[#E5E5E] overflow-y-auto">
-        <div className="md:py-28 py-10 px-16">
-          <img className="md:hidden block mb-10" src={require("../assets/images/navlogo.png")} alt="logo" />
+      <div className="lg:basis-1/2 bg-[#E5E5E] overflow-y-auto">
+        <div className="lg:py-28 py-10 px-3 lg:px-16">
+          <img className="lg:hidden block mb-10" src={require("../assets/images/navlogo.png")} alt="logo" />
           <h2 className="text-2xl font-bold mb-3">Reset password</h2>
           <Formik
             initialValues={{

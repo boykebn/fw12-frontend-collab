@@ -37,11 +37,11 @@ const Login = () => {
   };
 
   return (
-    <div className="flex h-screen overflow-y-hidden">
+    <div className="flex lg:h-screen overflow-y-hidden pb-5 lg:pb-0">
       <Left />
-      <div className="md:basis-1/2 bg-[#E5E5E]">
-        <div className="md:pt-28 pt-10 px-16">
-          <img className="md:hidden block mb-10" src={require("../assets/images/navlogo.png")} alt="logo" />
+      <div className="lg:basis-1/2 bg-[#E5E5E]">
+        <div className="lg:pt-28 pt-10 px-3 lg:px-16">
+          <img className="lg:hidden block mb-10" src={require("../assets/images/navlogo.png")} alt="logo" />
           <h2 className="text-2xl font-bold mb-3">Halo, Pewpeople</h2>
           <p className="text-gray-500 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</p>
           {errMessage ? (

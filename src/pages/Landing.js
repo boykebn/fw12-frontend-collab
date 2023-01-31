@@ -5,7 +5,7 @@ const Landing = () => {
   return (
     <div className="App bg-[#E5E5E5] font-openSans">
       <nav className="bg-white">
-        <div className="px-10 flex md:px-[150px] pt-[45px]">
+        <div className="px-10 flex lg:px-[150px] pt-[45px]">
           <div className="flex-1">
             <img className="" src={require("../assets/images/navlogo.png")} alt="navlogo" />
           </div>
@@ -21,13 +21,13 @@ const Landing = () => {
         </div>
       </nav>
       <div className="bg-white">
-        <div className="block pl-10 justify-items-stretch md:flex md:pl-[150px] pr-[115px] pt-[85px] md:mb-[100px]">
-          <div className="w-[500px] pt-[110px] mr-[69px]">
+        <div className="block pl-10 justify-items-stretch lg:flex lg:pl-[150px] pr-[115px] pt-[85px] lg:mb-[100px]">
+          <div className="lg:w-[500px] pt-5 lg:pt-[110px] lg:mr-[69px]">
             <div className="mb-[20px]">
-              <span className="text-[#1F2A36] text-4xl  md:text-[44px] leading-[70px]">Talenta terbaik negeri untuk perubahan revolusi 4.0</span>
+              <span className="text-[#1F2A36] text-4xl  lg:text-[44px] leading-[70px]">Talenta terbaik negeri untuk perubahan revolusi 4.0</span>
             </div>
             <div className="mb-[55px]">
-              <span className="text-[#46505C] text-lg md:text-[18px] leading-[28px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</span>
+              <span className="text-[#46505C] text-lg lg:text-[18px] leading-[28px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</span>
             </div>
             <div className="mb-4">
               <button className="border-1 bg-[#5E50A1] py-[21px] px-[24px] rounded text-[16px] text-white font-bold leading-[20px]">Mulai Dari Sekarang</button>
@@ -37,13 +37,13 @@ const Landing = () => {
             <img className="" src={require("../assets/images/pic1.png")} alt="pic1" />
           </div>
         </div>
-        <div className="block px-10 md:pl-[150px] pr-[115px] pt-[85px] md:flex md:mb-[100px]">
+        <div className="block px-10 lg:pl-[150px] pr-[115px] pt-[85px] lg:flex lg:mb-[100px]">
           <div className="mr-[23px]">
             <img className="" src={require("../assets/images/pic2.png")} alt="pic2" />
           </div>
           <div className="pt-[25px]">
-            <div className="w-[460px] mb-[34px]">
-              <span className="text-[#1F2A36] text-3xl md:text-[36px]">Kenapa harus mencari tallent di peworld</span>
+            <div className="lg:w-[460px] mb-[34px]">
+              <span className="text-[#1F2A36] text-3xl lg:text-[36px]">Kenapa harus mencari tallent di peworld</span>
             </div>
             <div>
               <div className="flex mb-[28px]">
@@ -81,12 +81,12 @@ const Landing = () => {
             </div>
           </div>
         </div>
-        <div className="block px-10 md:pl-[274px] pr-[109px] md:flex mb-[76px]">
-          <div className="pt-[50px]">
-            <div className="text-[#1F2A36] text-3xl md:text-[36px] leading-[56px] font-semibold mb-[12px]">Skill Tallent</div>
-            <div className="text-lg md:text-[18px] text-[#46505C] leading-[28px] w-[460px] mb-[30px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</div>
-            <div className="text-[16px] flex">
-              <div className="mr-[105px]">
+        <div className="block px-10 lg:pl-[274px] pr-[109px] lg:flex mb-[76px]">
+          <div className="pt-[50px] mb-5 lg:mb-0">
+            <div className="text-[#1F2A36] text-3xl lg:text-[36px] leading-[56px] font-semibold mb-[12px]">Skill Tallent</div>
+            <div className="text-lg lg:text-[18px] text-[#46505C] leading-[28px] lg:w-[460px] mb-[30px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</div>
+            <div className="text-[16px] lg:flex">
+              <div className="lg:mr-[105px] mb-5 lg:mb-0">
                 <div className="">
                   <div className="flex text-[#46505C] text-[16px]  mb-[28px]">
                     <div className="mr-[28px]">
@@ -168,11 +168,11 @@ const Landing = () => {
         </div>
         <div className="bg-[#E5E5E5] pb-[103px]">
           <div className="text-center pt-[80px] pb-[52px]">
-            <span className="text-[#1F2A36] text-3xl md:text-[36px] leading-[56px] font-semibold">Their opinion about peworld</span>
+            <span className="text-[#1F2A36] text-3xl lg:text-[36px] leading-[56px] font-semibold">Their opinion about peworld</span>
           </div>
-          <div className="block md:flex justify-center">
+          <div className="block lg:flex justify-center">
             <div className="mr-[28px]">
-              <div className=" bg-white mb-3 ml-5 shadow-lg py-[36px] md:px-[76px] h-full">
+              <div className=" bg-white mb-3 ml-5 shadow-lg py-[36px] lg:px-[76px] h-full">
                 <div className="flex justify-center items-center">
                   <img src={require("../assets/images/Ellipse.png")} alt="ellipse" />
                   <img className="absolute" src={require("../assets/images/testi1.png")} alt="testi1" />
@@ -219,11 +219,11 @@ const Landing = () => {
           </div>
         </div>
         <div className="bg-white">
-          <div className="px-[150px] py-[129px]">
-            <div className="border-1 bg-[#5E50A1] rounded-tl-[50px] rounded-br-[50px] md:w-full">
-              <div className="py-[58px] px-[70px] md:flex">
-                <div className="flex-1">
-                  <div className="text-lg md:text-[36px] text-white w-[250px] leading-[56px]">Lorem ipsum dolor sit amet</div>
+          <div className="px-3 lg:px-[150px] py-[129px]">
+            <div className="border-1 bg-[#5E50A1] rounded-tl-[50px] rounded-br-[50px] lg:w-full">
+              <div className="py-[58px] px-[70px] lg:flex">
+                <div className="flex-1 mb-3 lg:mb-0">
+                  <div className="text-lg lg:text-[36px] text-white lg:w-[250px] lg:leading-[56px]">Lorem ipsum dolor sit amet</div>
                 </div>
                 <div className="flex items-center">
                   <button className="border-1 bg-white py-[10px] px-[15px] rounded text-[#796EAF] text-[16px] font-bold">Mulai Dari Sekarang</button>

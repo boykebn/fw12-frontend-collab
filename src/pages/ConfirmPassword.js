@@ -69,11 +69,11 @@ const ConfirmPassword = () => {
   };
 
   return (
-    <div className="flex h-screen overflow-y-hidden">
+    <div className="flex lg:h-screen overflow-y-hidden">
       <Left />
-      <div className="md:basis-1/2 bg-[#E5E5E]">
-        <div className="md:py-28 py-10 px-16">
-          <img className="md:hidden block mb-10" src={require("../assets/images/navlogo.png")} alt="logo" />
+      <div className="lg:basis-1/2 bg-[#E5E5E]">
+        <div className="lg:py-28 py-10 px-3 lg:px-16">
+          <img className="lg:hidden block mb-10" src={require("../assets/images/navlogo.png")} alt="logo" />
           <h2 className="text-2xl font-bold mb-3 ">Reset password</h2>
           <p className="text-gray-500 mb-5">You need to change your password to activate your account</p>
           <Formik

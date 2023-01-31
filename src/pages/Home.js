@@ -65,19 +65,19 @@ const Home = () => {
       <Navbar />
       <Header />
       <div className="bg-[#E5E5E5] ">
-        <div className="px-10 py-[50px] md:px-[150px]">
+        <div className="px-3  lg:py-[50px] lg:px-[150px] mb-5 lg:mb-0">
           <div>
-            <div className="bg-white rounded-[6px] hidden lg:block w-max">
-              <div className="pl-[20px] pr-[10px] py-[6px] flex items-center">
+            <div className="bg-white rounded-[6px]  w-full lg:w-max">
+              <div className="px-3 lg:px-[10px] py-[6px] lg:flex items-center">
                 <div className="flex-1 text-[14px] text-[#9EA0A5] leading-[20px] relative">
-                  <input id="search-input" className=" py-[19px] pl-[15px] pr-14 w-[38rem] outline-1 outline-[#9EA0A5]" placeholder="Search for any skill" />
+                  <input id="search-input" className=" py-[19px] pl-[15px] lg:pr-14 w-full lg:w-[38rem] outline-1 outline-[#9EA0A5]" placeholder="Search for any skill" />
                   <CiSearch className="absolute w-8 h-8 top-3 right-3" />
                 </div>
-                <div className="md:flex items-center">
-                  <div className="mr-[25px]">
+                <div className="lg:flex items-center">
+                  <div className="lg:mr-[25px] hidden lg:block">
                     <img className="" src={require("../assets/images/Line.png")} alt="Line" />
                   </div>
-                  <div className="mr-[50px]">
+                  <div className="pl-3 lg:lg-0 lg:mr-[50px] mb-5 lg:mb-0">
                     <select onClick={(e) => sort(e.target.value)} className="text-[#9EA0A5] text-[16px] bg-white outline-none">
                       <option className="hidden">Sort</option>
                       <option value="Skill">Sortir berdasarkan Skill</option>
@@ -85,11 +85,9 @@ const Home = () => {
                       <option value="Fulltime">Sortir berdasarkan Fulltime</option>
                     </select>
                   </div>
-                  {/* <div className="mr-[50px]">
-                    <span className="text-[#9EA0A5] leading-[20px] font-semibold">Kategori</span>
-                  </div> */}
-                  <div>
-                    <button onClick={() => searchUser()} className=" border-1 bg-[#5E50A1] py-[17px] px-[34px] rounded text-white font-semibold">
+
+                  <div className="pl-3 lg:lg-0">
+                    <button onClick={() => searchUser()} className=" border-1 bg-[#5E50A1] py-[17px] w-full lg:px-[34px] rounded text-white font-semibold">
                       Search
                     </button>
                   </div>
@@ -98,30 +96,16 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="pl-10 mb-5 flex justify-center items-center md:hidden">
-          <div className="mr-[50px]">
-            <select onClick={(e) => sort(e.target.value)} className="text-[#9EA0A5] text-[16px]">
-              <option className="hidden">Sort</option>
-              <option value="Skill">Sortir berdasarkan Skill</option>
-              <option value="Freelancer">Sortir berdasarkan Freelance</option>
-              <option value="Fulltime">Sortir berdasarkan Fulltime</option>
-            </select>
-          </div>
-          <div>
-            <button onClick={() => searchUser()} className=" border-1 bg-[#5E50A1] py-[17px] px-[34px] rounded text-white font-semibold">
-              Search
-            </button>
-          </div>
-        </div>
-        <main className="px-[150px] pb-[50px]">
+
+        <main className="px-3 lg:px-[150px] pb-[50px]">
           {profile.map((bio) => (
-            <div className="bg-white md:flex pl-[20px] pt-[21px] pb-[38px] pr-[77px] mb-[1px] rounded-[8px]">
-              <div className="mr-[35px] flex md:items-center">
-                <img className="md:w-[100px] md:h-[100px]" src={require("../assets/images/testi1.png")} alt="testi1" />
+            <div className="bg-white flex flex-col lg:flex-row justify-center items-center pl-3 lg:pl-[20px] pt-[21px] pb-[38px] lg:pr-[77px] mb-3 lg:mb-[1px] rounded-[8px]">
+              <div className="lg:mr-[35px] flex lg:items-center">
+                <img className="lg:w-[100px] lg:h-[100px]" src={require("../assets/images/testi1.png")} alt="testi1" />
               </div>
               <div className="flex-1">
                 <div>
-                  <span className="text-[#1F2A36] text-2xl md:text-[22px] font-bold">{bio.name}</span>
+                  <span className="text-[#1F2A36] text-2xl lg:text-[22px] font-bold">{bio.name}</span>
                 </div>
                 <div className="mb-[6px]">
                   <span className="text-[#9EA0A5] text-[14px] leading-[20px]">
@@ -133,7 +117,7 @@ const Home = () => {
                   <span className="text-[#9EA0A5] text-[14px] leading-[20px]">{bio.address}</span>
                 </div>
 
-                <div className="flex flex-wrap md:grid-cols-3 gap-2 ">
+                <div className="flex flex-wrap lg:grid-cols-3 gap-2 mb-3 lg:mb-0">
                   {bio.skills.map((skill) => (
                     <div>
                       <div className="border-1 bg-[#FBB01799] rounded-[4px] px-2 py-[5px] text-white text-center">{skill}</div>
@@ -149,7 +133,7 @@ const Home = () => {
             </div>
           ))}
         </main>
-        <div className="px-10 md:px-[150px] pb-[70px] text-[#9EA0A5] text-[18px] flex justify-center">
+        <div className="px-3 lg:px-[150px] pb-[70px] text-[#9EA0A5] text-[18px] flex justify-center">
           <div className="mr-[14px]">
             <button>
               <img className="border-1 bg-white rounded py-[19px] px-[23px]" src={require("../assets/images/left.png")} alt="left" />
