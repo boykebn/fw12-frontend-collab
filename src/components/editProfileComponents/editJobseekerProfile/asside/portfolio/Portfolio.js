@@ -12,12 +12,12 @@ export default function Portfolio() {
   const { id } = jwt_decode(token);
 
   const updatePortofolio = async (e) => {
-    const values = {
+    const values = new URLSearchParams({
       link: e.target.link.value,
       name: e.target.name.value,
       userId: id,
       picture: "",
-    };
+    });
 
     await http(token).post(`/portofolio`, values);
   };

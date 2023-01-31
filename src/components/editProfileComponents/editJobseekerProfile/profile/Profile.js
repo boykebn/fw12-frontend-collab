@@ -97,7 +97,15 @@ export default function Profile({ dataUser }) {
               <RiPencilFill />
               <span>Edit</span>
             </div>
-            <div className="text-sm text-red-500">{message && message}</div>
+            <div
+              className={`text-sm ${
+                message === "Profile updated"
+                  ? "text-green-500"
+                  : "text-red-500"
+              }`}
+            >
+              {message && message}
+            </div>
           </div>
         </div>
         <div className="my-10 px-7 md:flex md:flex-col md:gap-2">
