@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import http from "../helpers/http";
+import imgProfile from "../assets/images/profile.jpg";
 
 const ExperienceJobseeker = () => {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ const ExperienceJobseeker = () => {
   useEffect(() => {
     getUserProfile();
     getExperiencesProfile();
-  }, []);
+  }, [getUserProfile, getExperiencesProfile]);
 
   return (
     <div>
@@ -73,7 +74,19 @@ const ExperienceJobseeker = () => {
         <div className="flex-[35%]">
           <div className="bg-white p-5 rounded-lg">
             <div className="flex justify-center items-center mb-5">
-              <img src={require("../assets/images/test3.png")} alt="profile" />
+              {dataUser?.picture ? (
+                <img
+                  src={dataUser?.picture}
+                  alt="profile"
+                  className="lg:w-[120px] lg:h-[120px] rounded-full"
+                />
+              ) : (
+                <img
+                  src={imgProfile}
+                  alt="profile"
+                  className="lg:w-[120px] lg:h-[120px] rounded-full"
+                />
+              )}
             </div>
             <div>
               <h3 className="font-medium text-xl md:text-2xl mb-2">
