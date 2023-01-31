@@ -1,29 +1,86 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import AssideNav from "../AssideNav";
 import { IoMdCloudUpload, IoIosResize } from "react-icons/io";
 import { BsImage } from "react-icons/bs";
 
 import jwt_decode from "jwt-decode";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import http from "../../../../../helpers/http";
+import { getProfileAction } from "../../../../../redux/actions/profile";
 
 export default function Portfolio() {
   const token = useSelector((state) => state.auth.token);
   const { id } = jwt_decode(token);
+  const [isLoadingPicture, setIsLoadingPicture] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const dispatch = useDispatch();
+
+  const inputFile = useRef(null);
+  const openFile = () => {
+    inputFile.current.click();
+  };
 
   const updatePortofolio = async (e) => {
-    const values = new URLSearchParams({
-      link: e.target.link.value,
-      name: e.target.name.value,
-      userId: id,
-      picture: "",
-    });
+    e.preventDefault();
 
-    await http(token).post(`/portofolio`, values);
+    const format = ["image/jpg", "image/png", "image/jpeg"];
+    const picture = e.target.picture.files[0];
+    if (picture) {
+      if (format.includes(picture.type)) {
+        if (picture.size < 2000000) {
+          let dataForm = new FormData();
+          dataForm.append("picture", picture);
+          dataForm.append("link", e.target.link.value);
+          dataForm.append("name", e.target.name.value);
+          dataForm.append("userId", id);
+          try {
+            setIsLoadingPicture(true);
+            const { data } = await http(token).post("/portofolio", dataForm, {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            });
+            await dispatch(getProfileAction());
+            setIsLoadingPicture(false);
+            setMessage(data.message);
+            setTimeout(() => {
+              setMessage("");
+            }, 5000);
+          } catch (err) {
+            setIsLoadingPicture(false);
+            setMessage(err.response.data.message);
+          }
+        } else {
+          setMessage("Image file size must be less than 2mb");
+        }
+      } else {
+        setMessage("File type must be images");
+      }
+    } else {
+      const values = new URLSearchParams({
+        link: e.target.link.value,
+        name: e.target.name.value,
+        userId: id,
+        picture: "",
+      });
+      await http(token).post(`/portofolio`, values);
+    }
   };
 
   return (
     <div className="bg-white rounded-[8px] p-1 mt-5 font-openSans">
+      {message && (
+        <div
+          className={`w-full flex justify-center ${
+            message === "Create Portofolio succes"
+              ? "bg-green-500 my-2"
+              : "bg-red-500 my-2"
+          }`}
+        >
+          <p className="text-white">{message}</p>
+        </div>
+      )}
       <AssideNav
         navClassName="font-openSans text-xl text-[#1F2A36]"
         nav1="Portfolio"
@@ -56,14 +113,15 @@ export default function Portfolio() {
         </div>
         <div className="flex flex-col gap-2 mt-7">
           <span className="text-[#9EA0A5] text-xs mt-7">Upload gambar</span>
-          <div className="flex flex-col border-[1px] border-[#9EA0A5] border-dashed h-[348px] w-full rounded-[8px] justify-center items-center gap-5 text-[#9EA0A5] p-5 text-center">
+          <div className="cursor-pointer flex flex-col border-[1px] border-[#9EA0A5] border-dashed h-[348px] w-full rounded-[8px] justify-center items-center gap-5 text-[#9EA0A5] p-5 text-center">
             <IoMdCloudUpload className="h-16 w-28 cursor-pointer hover:scale-[1.05] hover:drop-shadow-md" />
             <span className="font-openSans text-[#1F2A36] text-sm">
               Drag & Drop untuk Upload Gambar Aplikasi Mobile
             </span>
             <span className="text-xs text-[#1F2A36]">
-              Atau cari untuk mengupload file dari direktorimu.
+              Atau cari untuk mengupload file dari direktorimu
             </span>
+            <input type="file" name="picture" id="picture" className="" />
             <div className="flex gap-2">
               <div className="flex items-center gap-2">
                 <BsImage className="w-8 h-8" />

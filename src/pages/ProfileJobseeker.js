@@ -33,7 +33,7 @@ const ProfileJobseeker = () => {
   useEffect(() => {
     getUserProfile();
     getPortofolioProfile();
-  }, []);
+  }, [getPortofolioProfile, getUserProfile]);
 
   return (
     <div>
@@ -174,8 +174,9 @@ const ProfileJobseeker = () => {
                     key={toString(e.id)}
                   >
                     <img
-                      src={require("../assets/images/portfolio1.png")}
+                      src={e.picture}
                       alt="Remainder app"
+                      className="w-[270px] h-[200px]"
                     />
                     <p>{e.name}</p>
                   </div>
