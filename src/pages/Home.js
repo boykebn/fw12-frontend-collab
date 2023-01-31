@@ -19,7 +19,7 @@ const Home = () => {
   React.useEffect(() => {
     axios
       .get(
-        `https://fw12-backend-xxyg.vercel.app/users/skill?page=${page}&search=${search}&sortBy=${sortBy}&status=${status}`
+        `https://fw12-frontend-collab.vercel.app/users/skill?page=${page}&search=${search}&sortBy=${sortBy}&status=${status}`
       )
       .then((data) => data.data)
       .then((res) => {
