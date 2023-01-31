@@ -1,18 +1,29 @@
 import React from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { getProfileAction, getSkillsAction } from "../redux/actions/profile";
 import { logout as logoutAction } from "../redux/reducers/auth";
-
+import { clearProfileAction } from "../redux/reducers/profile";
+import imgProfile from "../assets/images/profile.jpg";
 
 const Navbar = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const role = useSelector(state => state.auth.role)
+  const role = useSelector((state) => state.auth.role);
+  const { picture } = useSelector((state) => state.profile);
 
   const handlerLogout = () => {
     dispatch(logoutAction());
+    dispatch(clearProfileAction());
     navigate("/login");
   };
+
+  useEffect(() => {
+    dispatch(getProfileAction());
+    dispatch(getSkillsAction());
+  }, [dispatch]);
+
   return (
     <div>
       <nav className="fixed px-5 py-[33px] md:px-20 lg:pl-[150px] lg:pr-[130px] bg-white w-full z-10 top-0">
@@ -52,12 +63,22 @@ const Navbar = (props) => {
             </div>
             <div>
               <div className="dropdown dropdown-end">
-                <img
-                  className="w-[32px] h-[32px] rounded-[50%] cursor-pointer"
-                  src={require("../assets/images/luffy.jpg")}
-                  alt="profile"
-                  tabIndex={0}
-                />
+                {picture ? (
+                  <img
+                    className="w-[32px] h-[32px] rounded-[50%] cursor-pointer"
+                    src={picture}
+                    alt="profile"
+                    tabIndex={0}
+                  />
+                ) : (
+                  <img
+                    className="w-[32px] h-[32px] rounded-[50%] cursor-pointer"
+                    src={imgProfile}
+                    alt="profile"
+                    tabIndex={0}
+                  />
+                )}
+
                 <ul
                   tabIndex={0}
                   className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
@@ -65,9 +86,11 @@ const Navbar = (props) => {
                   <li>
                     <Link to="/edit-jobseeker-profile">Profile</Link>
                   </li>
-                  {role === 'RECRUITER' ? <li>
-                    <Link to="/company-profile">Company Profile</Link>
-                  </li> : null}
+                  {role === "RECRUITER" ? (
+                    <li>
+                      <Link to="/company-profile">Company Profile</Link>
+                    </li>
+                  ) : null}
                   <li>
                     <button onClick={handlerLogout}>Logout</button>
                   </li>

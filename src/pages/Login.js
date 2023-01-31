@@ -41,14 +41,31 @@ const Login = () => {
       <Left />
       <div className="md:basis-1/2 bg-[#E5E5E]">
         <div className="md:pt-28 pt-10 px-16">
-          <img className="md:hidden block mb-10" src={require("../assets/images/navlogo.png")} alt="logo" />
+          <img
+            className="md:hidden block mb-10"
+            src={require("../assets/images/navlogo.png")}
+            alt="logo"
+          />
           <h2 className="text-2xl font-bold mb-3">Halo, Pewpeople</h2>
-          <p className="text-gray-500 mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod ipsum et dui rhoncus auctor.</p>
+          <p className="text-gray-500 mb-2">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In euismod
+            ipsum et dui rhoncus auctor.
+          </p>
           {errMessage ? (
             <div className="alert alert-error shadow-lg">
               <div>
-                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="stroke-current flex-shrink-0 h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
                 <span>{errMessage}</span>
               </div>
@@ -66,16 +83,39 @@ const Login = () => {
               <Form>
                 <div className="flex flex-col mb-7">
                   <label className="text-gray-400 mb-1">Email</label>
-                  <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type="email" name="email" placeholder="Masukan alamat email" />
-                  {errors.email && touched.email ? <div className="text-red-500 text-sm">{errors.email}</div> : null}
+                  <Field
+                    className="border rounded py-2 px-4 bg-white focus:outline-none"
+                    type="email"
+                    name="email"
+                    placeholder="Masukan alamat email"
+                  />
+                  {errors.email && touched.email ? (
+                    <div className="text-red-500 text-sm">{errors.email}</div>
+                  ) : null}
                 </div>
                 <div className="flex flex-col mb-3 relative">
                   <label className="text-gray-400 mb-1">Password</label>
-                  <Field className="border rounded py-2 px-4 bg-white focus:outline-none" type={show ? "text" : "password"} name="password" placeholder="Masukan kata sandi" />
-                  <label onClick={handlerShow} className="absolute right-5 top-10 cursor-pointer">
-                    {show ? <BsEyeSlash className="w-[20px] h-[20px]" /> : <BsEye className="w-[20px] h-[20px]" />}
+                  <Field
+                    className="border rounded py-2 px-4 bg-white focus:outline-none"
+                    type={show ? "text" : "password"}
+                    name="password"
+                    placeholder="Masukan kata sandi"
+                  />
+                  <label
+                    onClick={handlerShow}
+                    className="absolute right-5 top-10 cursor-pointer"
+                  >
+                    {show ? (
+                      <BsEyeSlash className="w-[20px] h-[20px]" />
+                    ) : (
+                      <BsEye className="w-[20px] h-[20px]" />
+                    )}
                   </label>
-                  {errors.password && touched.password ? <div className="text-red-500 text-sm">{errors.password}</div> : null}
+                  {errors.password && touched.password ? (
+                    <div className="text-red-500 text-sm">
+                      {errors.password}
+                    </div>
+                  ) : null}
                 </div>
 
                 <div className="flex justify-end">
@@ -83,7 +123,10 @@ const Login = () => {
                     Lupa kata sandi?
                   </Link>
                 </div>
-                <button type="submit" className="flex justify-center bg-[#FBB017] rounded text-white w-full py-2 my-5">
+                <button
+                  type="submit"
+                  className="flex justify-center bg-[#FBB017] rounded text-white w-full py-2 my-5"
+                >
                   Masuk
                 </button>
               </Form>

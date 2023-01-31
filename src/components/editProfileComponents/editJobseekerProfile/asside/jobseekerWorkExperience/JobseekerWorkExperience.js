@@ -4,12 +4,16 @@ import AssideNav from "../AssideNav";
 import jwt_decode from "jwt-decode";
 import { useSelector } from "react-redux";
 import http from "../../../../../helpers/http";
+import { useState } from "react";
 
 export default function PengalamanKerja() {
   const token = useSelector((state) => state.auth.token);
   const { id } = jwt_decode(token);
 
+  const [message, setMessage] = useState("");
+
   const updateExperiences = async (e) => {
+    e.preventDefault();
     const values = {
       companyName: e.target.companyName.value,
       position: e.target.position.value,
@@ -19,6 +23,10 @@ export default function PengalamanKerja() {
       description: e.target.description.value,
     };
     await http(token).post(`/experiences`, values);
+    setMessage("Exprerience added");
+    setTimeout(() => {
+      setMessage("");
+    }, [5000]);
   };
 
   return (
@@ -28,6 +36,11 @@ export default function PengalamanKerja() {
         nav1="Pengalaman Kerja"
       />
       <hr className="w-full" />
+      {message && (
+        <div className="w-full flex justify-center bg-green-500 my-2">
+          <p className="text-white">{message}</p>
+        </div>
+      )}
       <form className="px-7" onSubmit={updateExperiences}>
         <div className="lg:grid lg:grid-cols-2 lg:gap-2 my-7">
           <div className="pengalamanKerja-InputParentClassName">

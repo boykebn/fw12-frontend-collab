@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import http from "../../../../../helpers/http";
+import { getProfileAction } from "../../../../../redux/actions/profile";
 import AssideNav from "../AssideNav";
 
-export default function DataDiriForm() {
+export default function DataDiriForm({ dataUser }) {
   const token = useSelector((state) => state.auth.token);
+  const [isLoading, setIsLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const dispatch = useDispatch();
 
   const updateUserInfo = async (e) => {
-    // e.preventDefault();
-    const values = {
+    e.preventDefault();
+    const values = new URLSearchParams({
       name: e.target.name.value,
       jobDesk: e.target.jobDesk.value,
       address: e.target.address.value,
@@ -16,9 +20,15 @@ export default function DataDiriForm() {
       github: e.target.github.value,
       gitlab: e.target.gitlab.value,
       bio: e.target.bio.value,
-    };
-    console.log(values.bio);
+    });
+    setIsLoading(true);
     await http(token).patch(`/profile`, values);
+    await dispatch(getProfileAction());
+    setMessage("Profile Updated");
+    setIsLoading(false);
+    setTimeout(() => {
+      setMessage("");
+    }, [5000]);
   };
 
   return (
@@ -32,6 +42,11 @@ export default function DataDiriForm() {
           nav1="Data diri"
         />
         <hr className="w-full" />
+        {message && (
+          <div className="w-full flex justify-center bg-green-500 my-2">
+            <p className="text-white">{message}</p>
+          </div>
+        )}
         <div className="parents-DataDiriInputClassName">
           <label htmlFor="name" className="text-[#9EA0A5] text-xs">
             Nama lengkap
@@ -41,7 +56,8 @@ export default function DataDiriForm() {
             name="name"
             className="dataDiri-InputClass"
             id="namaLengkap"
-            placeholder="Masukan nama lengkap"
+            placeholder="Masukan nama Job desk"
+            defaultValue={dataUser.name}
           />
         </div>
         <div className="parents-DataDiriInputClassName">
@@ -54,6 +70,7 @@ export default function DataDiriForm() {
             className="dataDiri-InputClass"
             id="jobdesk"
             placeholder="Masukan nama Job desk"
+            defaultValue={dataUser.jobDesk}
           />
         </div>
         <div className="parents-DataDiriInputClassName">
@@ -66,6 +83,7 @@ export default function DataDiriForm() {
             className="dataDiri-InputClass"
             id="domisili"
             placeholder="Masukan Domosili"
+            defaultValue={dataUser.address}
           />
         </div>
         <div className="flex flex-col md:flex md:flex-col gap-6 lg:flex lg:flex-row px-7 mt-10">
@@ -79,6 +97,7 @@ export default function DataDiriForm() {
               className="dataDiri-InputClass lg:w-full"
               id="ig"
               placeholder="Masukan Username IG"
+              defaultValue={dataUser.instagram}
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -91,6 +110,7 @@ export default function DataDiriForm() {
               className="dataDiri-InputClass lg:w-full"
               id="github"
               placeholder="Masukan Username Github"
+              defaultValue={dataUser.github}
             />
           </div>
           <div className="flex flex-col gap-2">
@@ -103,6 +123,7 @@ export default function DataDiriForm() {
               className="dataDiri-InputClass lg:w-full"
               id="gitlab"
               placeholder="Masukan Username Gitlab"
+              defaultValue={dataUser.gitlab}
             />
           </div>
         </div>
@@ -115,11 +136,13 @@ export default function DataDiriForm() {
             id="decryption"
             className="deskripsi-singkatClassName"
             placeholder="Tuliskan deskripsi singkat"
+            defaultValue={dataUser.bio}
           ></textarea>
         </div>
 
         <div className="flex justify-end">
           <button
+            disabled={isLoading}
             type="submit"
             className="w-20 h-12 rounded-[4px] bg-[#FBB017] text-[#FFFFFF] font-openSans m-7 hover:scale-[1.05]"
           >
