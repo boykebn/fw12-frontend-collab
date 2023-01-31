@@ -11,18 +11,33 @@ import http from "../helpers/http";
 import { useSelector } from "react-redux";
 
 export default function EditJobseekerProfile() {
-  const [dataUser, setDataUser] = useState({});
-  const token = useSelector((state) => state.auth.token);
+  const { name } = useSelector((state) => state.profile);
+  const { picture } = useSelector((state) => state.profile);
+  const { phoneNumber } = useSelector((state) => state.profile);
+  const { email } = useSelector((state) => state.profile);
+  const { jobDesk } = useSelector((state) => state.profile);
+  const { address } = useSelector((state) => state.profile);
+  const { bio } = useSelector((state) => state.profile);
+  const { instagram } = useSelector((state) => state.profile);
+  const { github } = useSelector((state) => state.profile);
+  const { gitlab } = useSelector((state) => state.profile);
+  const { status } = useSelector((state) => state.profile);
+  const { linkedin } = useSelector((state) => state.profile);
 
-  const getUserProfile = async () => {
-    const { data } = await http(token).get(`/profile/myAccount`);
-    const { results } = data;
-    setDataUser(results);
+  const dataUser = {
+    name,
+    picture,
+    phoneNumber,
+    email,
+    jobDesk,
+    address,
+    bio,
+    instagram,
+    github,
+    gitlab,
+    status,
+    linkedin,
   };
-
-  useEffect(() => {
-    getUserProfile();
-  }, []);
 
   return (
     <>
@@ -31,7 +46,7 @@ export default function EditJobseekerProfile() {
         <div className="md:grid md:grid-cols-[400px_minmax(100px,_1fr)_10px] md:gap-5 pt-36 mb-32 lg:grid-cols-[500px_minmax(100px,_1fr)_110px]">
           <Profile dataUser={dataUser} />
           <div className="mx-2">
-            <JobseekerPersonalDataForm />
+            <JobseekerPersonalDataForm dataUser={dataUser} />
             <SkillForm />
             <JobseekerWorkExperience />
             <Portfolio />
